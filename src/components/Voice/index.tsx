@@ -1,23 +1,9 @@
 'use client';
+import { Views } from '@/Views/Views';
+import { ConnectButton } from '@/components/ConnectButton';
 import { getClientToken } from '@/components/Voice/getClientToken';
-import { VoiceProvider, useVoice } from '@humeai/voice-react';
+import { VoiceProvider } from '@humeai/voice-react';
 import useSWR from 'swr';
-
-const Test = () => {
-  const { connect } = useVoice();
-
-  return (
-    <div>
-      <button
-        onClick={() => {
-          void connect();
-        }}
-      >
-        Connect
-      </button>
-    </div>
-  );
-};
 
 export const Voice = () => {
   const { data } = useSWR('/api/access-token', getClientToken);
@@ -32,10 +18,7 @@ export const Voice = () => {
       }}
       hostname={process.env.NEXT_PUBLIC_VOICE_HOSTNAME}
     >
-      <div>
-        <h1>Hello</h1>
-        <Test />
-      </div>
+      <Views />
     </VoiceProvider>
   );
 };
