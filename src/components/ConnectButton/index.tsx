@@ -5,7 +5,7 @@ export const ConnectButton = () => {
 
   return (
     <button
-      className="bg-black rounded-lg text-white px-3 py-1"
+      className="bg-black rounded-lg text-white px-2 py-1"
       onClick={() => {
         void connect();
       }}

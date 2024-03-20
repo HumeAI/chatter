@@ -19,11 +19,13 @@ export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
   return (
     <motion.div
       className="bg-blue-200 ml-auto w-fit py-4 px-8 text-xl rounded-xl max-w-4xl"
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0, x: 30, y: 20 }}
       animate={{
         opacity: 1,
+        x: 0,
+        y: 0,
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <motion.div
         layout
@@ -59,7 +61,7 @@ export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
         })}
       </motion.div>
 
-      {/* {JSON.stringify(top3)} */}
+      {JSON.stringify(top3)}
     </motion.div>
   );
 };
