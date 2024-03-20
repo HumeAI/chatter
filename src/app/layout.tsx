@@ -3,7 +3,9 @@ import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+import { fraktionMono } from '@/assets/FraktionMono';
+import { cn } from '@/utils';
+import { fellix } from '@/assets/Fellix';
 
 export const metadata: Metadata = {
   title: 'Chatter',
@@ -17,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={cn(fellix.className, fellix.variable, fraktionMono.variable)}
+      >
         <main className="flex min-h-screen flex-col gap-8">{children}</main>
       </body>
     </html>

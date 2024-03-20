@@ -11,9 +11,6 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { Fragment, useMemo } from 'react';
 
-const mockMessage = [createMockUserMessage(), createMockAgentMessage()];
-
-console.log('mockMessage', mockMessage);
 export const ConversationView = () => {
   const { status, messages } = useVoice();
   const transcriptMessages = useMemo(() => {
@@ -34,7 +31,7 @@ export const ConversationView = () => {
         transition={{ duration: 0.5 }}
       >
         <DisconnectButton />
-        <Messages transcriptMessages={mockMessage} />
+        <Messages transcriptMessages={transcriptMessages} />
       </motion.div>
     </AnimatePresence>
   );

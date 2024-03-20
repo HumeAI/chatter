@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "FellixVF";
+  src: url("./FellixVF.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 25% 100%;
+}

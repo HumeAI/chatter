@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "FraktionMono";
+  src: url("FraktionMono-Medium.eot"); /* IE9 Compat Modes */
+  src:
+    url("FraktionMono-Medium.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("FraktionMono-Medium.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("FraktionMono-Medium.woff") format("woff"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

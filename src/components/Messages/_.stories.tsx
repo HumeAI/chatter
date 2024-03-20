@@ -39,7 +39,7 @@ const Template: StoryFn<MessagesProps> = () => {
     }, 7000);
   }, []);
   return (
-    <div className="bg-tan-400 h-screen w-screen">
+    <div className="bg-tan-400 min-h-screen w-screen p-8">
       <Messages transcriptMessages={messages} />
     </div>
   );
