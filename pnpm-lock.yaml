@@ -8,6 +8,9 @@ dependencies:
   '@humeai/voice-react':
     specifier: 0.0.0-beta.7
     version: 0.0.0-beta.7(@types/react@18.2.67)
+  '@ngneat/falso':
+    specifier: ^7.2.0
+    version: 7.2.0
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -73,9 +76,6 @@ dependencies:
     version: 4.5.2(@types/react@18.2.67)(react@18.2.0)
 
 devDependencies:
-  '@ngneat/falso':
-    specifier: ^7.2.0
-    version: 7.2.0
   '@storybook/addon-essentials':
     specifier: ^8.0.2
     version: 8.0.2(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
@@ -2088,7 +2088,7 @@ packages:
     dependencies:
       seedrandom: 3.0.5
       uuid: 8.3.2
-    dev: true
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -9385,7 +9385,7 @@ packages:
 
   /seedrandom@3.0.5:
     resolution: {integrity: sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==}
-    dev: true
+    dev: false
 
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
@@ -10444,7 +10444,7 @@ packages:
   /uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
-    dev: true
+    dev: false
 
   /uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
