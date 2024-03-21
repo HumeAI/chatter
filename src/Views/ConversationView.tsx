@@ -1,18 +1,12 @@
-import { AgentMessage } from '@/components/AgentMessage';
 import { DisconnectButton } from '@/components/DisconnectButton';
+import { ExpressionBlobPane } from '@/components/ExpressionBlobPane';
 import { Messages } from '@/components/Messages';
-import { UserMessage } from '@/components/UserMessage';
-import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
-import {
-  AgentTranscriptMessage,
-  UserTranscriptMessage,
-  useVoice,
-} from '@humeai/voice-react';
+import { useVoice } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Fragment, useMemo } from 'react';
+import { useMemo } from 'react';
 
 export const ConversationView = () => {
-  const { status, messages } = useVoice();
+  const { messages, lastVoiceMessage } = useVoice();
   const transcriptMessages = useMemo(() => {
     return messages.filter((message) => {
       return (
@@ -24,14 +18,18 @@ export const ConversationView = () => {
   return (
     <AnimatePresence>
       <motion.div
-        className="bg-tan-400 w-screen h-screen"
+        className="bg-black w-screen h-screen"
         initial={{ y: -1000 }}
         animate={{ y: 0 }}
         exit={{ y: -1000 }}
         transition={{ duration: 0.5 }}
       >
         <DisconnectButton />
-        <Messages transcriptMessages={transcriptMessages} />
+        <div className="flex h-full">
+          <div className="">
+            <Messages transcriptMessages={transcriptMessages} />
+          </div>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

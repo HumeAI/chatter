@@ -1,4 +1,3 @@
-import { top3Prosody } from '@/utils';
 import { UserTranscriptMessage } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
 import { FC, Fragment, useMemo } from 'react';
@@ -8,17 +7,13 @@ export type UserMessageProps = {
   message: UserTranscriptMessage;
 };
 export const UserMessage: FC<UserMessageProps> = ({ message }) => {
-  const top3 = useMemo(() => {
-    return top3Prosody(message.models.prosody.scores);
-  }, [message]);
-
   const words = useMemo(() => {
     return message.message.content.split(' ');
   }, [message.message.content]);
 
   return (
     <motion.div
-      className="bg-pink-200 mr-auto w-fit py-2 px-4 text-md rounded-xl max-w-2xl"
+      className="bg-green-300 mr-auto w-fit py-2 px-4 text-md rounded-xl max-w-lg z-50"
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
@@ -35,7 +30,6 @@ export const UserMessage: FC<UserMessageProps> = ({ message }) => {
           );
         })}
       </div>
-      {JSON.stringify(top3)}
     </motion.div>
   );
 };

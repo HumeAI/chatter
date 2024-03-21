@@ -5,29 +5,30 @@ import {
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useState } from 'react';
-import type { BackdropProps } from '.';
-import { Backdrop } from '.';
+import type { ExpressionBlobProps } from '.';
+import { ExpressionBlob } from '.';
 
 export default {
-  component: Backdrop,
-  title: 'Backdrop',
+  component: ExpressionBlob,
+  title: 'ExpressionBlob',
   args: {},
   argTypes: {},
 } satisfies Meta;
 
-const Template: StoryFn<BackdropProps> = () => {
+const Template: StoryFn<ExpressionBlobProps> = () => {
   const [messages, setMessages] = useState<
     Array<UserTranscriptMessage | AgentTranscriptMessage>
   >([]);
 
   return (
     <div className="bg-tan-400 min-h-screen w-screen p-8">
-      <Backdrop />
+      <ExpressionBlob expression="Admiration" />
+      <ExpressionBlob expression="Anger" />
     </div>
   );
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  transcriptMessages: [],
-} satisfies BackdropProps;
+  expression: 'Admiration',
+} satisfies ExpressionBlobProps;

@@ -13,7 +13,7 @@ export type MessagesProps = {
 
 export const Messages: FC<MessagesProps> = ({ transcriptMessages }) => {
   return (
-    <div className="flex flex-col w-full max-w-7xl mx-auto gap-8">
+    <div className="flex flex-col w-full max-w-3xl gap-10 px-10">
       {transcriptMessages.map((message, index) => {
         return (
           <Fragment key={index}>
