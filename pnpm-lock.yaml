@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@humeai/voice-react':
-    specifier: 0.0.0-beta.3
-    version: 0.0.0-beta.3(@types/react@18.2.67)
+    specifier: 0.0.0-beta.7
+    version: 0.0.0-beta.7(@types/react@18.2.67)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -1903,10 +1903,10 @@ packages:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     dev: true
 
-  /@humeai/voice-react@0.0.0-beta.3(@types/react@18.2.67):
-    resolution: {integrity: sha512-zSxAF46PDrjjYho8VCdOQLi5Fgq972WVBu0VeYRxpVVjj3JtQCycce2CJl5rQGebdr9yGYRcQp6uxB/Tuyvkeg==}
+  /@humeai/voice-react@0.0.0-beta.7(@types/react@18.2.67):
+    resolution: {integrity: sha512-vnQgJ6c+N+2L9u/J/0WIo6ZKbMb1UZqhjLy/Nrc9ggxJKuCHBNcx0Undbq4B7T+4yUYFbZf4rSuACDGAZXbs6Q==}
     dependencies:
-      '@humeai/voice': 0.0.0-beta.3
+      '@humeai/voice': 0.0.0-beta.7
       '@testing-library/react-hooks': 8.0.1(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       meyda: 5.6.2
       react: 18.2.0
@@ -1918,8 +1918,8 @@ packages:
       - supports-color
     dev: false
 
-  /@humeai/voice@0.0.0-beta.3:
-    resolution: {integrity: sha512-cwV3wSB2SyO5UrRUiRFZ9EZBjMUYaY3WVJkd6AvX0YvIHp9aqGptiLK+rNiEG+Xf+0N/82IJ4VzkGJVuNsbESA==}
+  /@humeai/voice@0.0.0-beta.7:
+    resolution: {integrity: sha512-+gQ+Da73b5VOuGFAgNumKvfOAr43ruofLE1CM43lCv6vmHOnbk30wpFQ1fJp/ybjhWoBYxywzCPgSXmEHkcZeg==}
     dependencies:
       reconnecting-websocket: 4.4.0
       ts-pattern: 5.0.8

@@ -1,8 +1,7 @@
 'use client';
 import { Views } from '@/Views/Views';
-import { ConnectButton } from '@/components/ConnectButton';
 import { getClientToken } from '@/components/Voice/getClientToken';
-import { systemPrompt } from '@/components/Voice/systemPrompt';
+import { systemPrompt } from '@/components/Voice/prompts';
 import { VoiceProvider } from '@humeai/voice-react';
 import { useState } from 'react';
 import useSWR from 'swr';
@@ -23,14 +22,19 @@ export const Voice = () => {
       systemPrompt={systemPrompt}
       onMessage={(message) => {
         if (
+          message.type === 'user_message' &&
+          message.models.prosody === null
+        ) {
+          return;
+        }
+
+        if (
           message.type === 'user_message' ||
           message.type === 'assistant_message'
         ) {
           if (transcriptMessages.length === 5) {
-            console.log('5', message);
             setTranscriptMessages([message]);
           } else {
-            console.log('less', message);
             setTranscriptMessages((p) => p.concat(message));
           }
         }

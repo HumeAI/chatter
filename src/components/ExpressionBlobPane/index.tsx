@@ -16,7 +16,7 @@ export const ExpressionBlobPane: FC<ExpressionBlobPaneProps> = (props) => {
   }, [lastVoiceMessage]);
 
   return (
-    <div className="relative h-full contrast-[10] bg-black">
+    <div className="relative h-full bg-black contrast-[10]">
       {topExpressions[0]?.name ? (
         <>
           <ExpressionBlob expression={topExpressions[0]?.name} />
