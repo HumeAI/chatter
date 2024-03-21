@@ -1,10 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import {
-  AgentTranscriptMessage,
-  UserTranscriptMessage,
-} from '@humeai/voice-react';
-import { useState } from 'react';
 import type { ExpressionBlobProps } from '.';
 import { ExpressionBlob } from '.';
 
@@ -16,10 +11,6 @@ export default {
 } satisfies Meta;
 
 const Template: StoryFn<ExpressionBlobProps> = () => {
-  const [messages, setMessages] = useState<
-    Array<UserTranscriptMessage | AgentTranscriptMessage>
-  >([]);
-
   return (
     <div className="min-h-screen w-screen bg-tan-400 p-8">
       <ExpressionBlob expression="Admiration" />

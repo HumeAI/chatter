@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@humeai/voice-react": "0.0.0-beta.7",
+    "@ngneat/falso": "^7.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "expression-colors": "github:HumeAI/colors",
@@ -34,7 +35,6 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@ngneat/falso": "^7.2.0",
     "@storybook/addon-essentials": "^8.0.2",
     "@storybook/addon-interactions": "^8.0.2",
     "@storybook/addon-links": "^8.0.2",

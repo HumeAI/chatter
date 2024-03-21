@@ -1,16 +1,13 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { expressionColors } from 'expression-colors';
-import { randSentence } from '@ngneat/falso';
-import { nanoid } from 'nanoid';
 
-import { Messages } from '.';
-import type { MessagesProps } from '.';
+import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
 import {
   AgentTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
-import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
 import { useEffect, useState } from 'react';
+import type { MessagesProps } from '.';
+import { Messages } from '.';
 
 export default {
   component: Messages,

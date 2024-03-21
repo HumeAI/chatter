@@ -1,10 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import {
-  AgentTranscriptMessage,
-  UserTranscriptMessage,
-} from '@humeai/voice-react';
-import { useState } from 'react';
 import type { OnAirProps } from '.';
 import { OnAir } from '.';
 
@@ -17,8 +12,8 @@ export default {
 
 const Template: StoryFn<OnAirProps> = () => {
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-black ">
-      <OnAir expression="Admiration" />
+    <div className="flex min-h-screen w-screen items-center justify-center bg-black ">
+      <OnAir />
     </div>
   );
 };
@@ -26,4 +21,4 @@ const Template: StoryFn<OnAirProps> = () => {
 export const Default = Template.bind({});
 Default.args = {
   expression: 'Admiration',
-} satisfies ExpressionBlobProps;
+} satisfies OnAirProps;

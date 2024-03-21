@@ -1,4 +1,5 @@
 import { ConversationView } from '@/Views/ConversationView';
+import { ErrorView } from '@/Views/ErrorView';
 import { HomeView } from '@/Views/HomeView';
 import { initialMessage } from '@/components/Voice/prompts';
 import {
@@ -26,10 +27,10 @@ export const Views: FC<ViewsProps> = ({ transcriptMessages }) => {
     return () => {
       isFirstMessageSent.current = false;
     };
-  }, [status.value]);
+  }, [sendText, status.value]);
 
   return (
-    <div className="bg-beige-300 h-screen w-screen overflow-hidden">
+    <div className="h-screen w-screen bg-tan-300">
       {match(status.value)
         .with('connected', () => {
           return <ConversationView transcriptMessages={transcriptMessages} />;
@@ -38,7 +39,7 @@ export const Views: FC<ViewsProps> = ({ transcriptMessages }) => {
           return <HomeView />;
         })
         .otherwise(() => {
-          return <div>something went wrong</div>;
+          return <ErrorView />;
         })}
     </div>
   );

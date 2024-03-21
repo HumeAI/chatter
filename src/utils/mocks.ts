@@ -23,7 +23,6 @@ function createMockProsodyObject() {
 }
 
 export function createMockAgentMessage({
-  content,
   date,
 }: {
   content?: string;

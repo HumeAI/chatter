@@ -12,7 +12,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
   const { fft } = useVoice();
 
   const top3Expressions = useMemo(() => {
-    return getTopNProsody(message?.models.prosody.scores || {}, 3).map(
+    return getTopNProsody(message?.models.prosody?.scores || {}, 3).map(
       ({ name }) => {
         return `rgba(${expressionColors[name].rgba.join(', ')})`;
       },
@@ -20,12 +20,12 @@ export const Waveform: FC<WaveformProps> = (props) => {
   }, [message]);
 
   return (
-    <div className="opacity-30">
+    <div className="top-10 opacity-30">
       <motion.svg
+        className={'absolute -bottom-96 left-20'}
         viewBox={'0 0 100 100'}
-        width={400}
-        height={400}
-        className={'absolute inset-0 size-full'}
+        width={1000}
+        height={800}
       >
         {Array.from({ length: 24 }).map((_, index) => {
           const value = (fft[index] ?? 0) / 4;
@@ -35,6 +35,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
 
           return (
             <motion.rect
+              className="transition-colors"
               key={index}
               fill={top3Expressions[0] ?? 'white'}
               height={height}
