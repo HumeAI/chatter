@@ -1,4 +1,3 @@
-import { cn } from '@/utils';
 import { expressionColors } from 'expression-colors';
 import { motion } from 'framer-motion';
 import { FC, useMemo, useRef } from 'react';
@@ -46,7 +45,7 @@ export const ExpressionBlob: FC<ExpressionBlobProps> = ({ expression }) => {
 
   return (
     <motion.div
-      className="transition-bg absolute size-40 bg-[var(--color)] blur-lg"
+      className="absolute size-40 bg-[var(--color)] blur-lg"
       style={{
         '--color': color,
       }}

@@ -23,10 +23,10 @@ export const ConversationView: FC<ConversationViewProps> = ({
     <AnimatePresence>
       <motion.div
         className="h-screen w-screen bg-black"
-        initial={{ y: -1000 }}
-        animate={{ y: 0 }}
-        exit={{ y: -1000 }}
-        transition={{ duration: 0.5 }}
+        initial={{ x: 1000 }}
+        animate={{ x: 0 }}
+        exit={{ x: 1000 }}
+        transition={{ duration: 0.1 }}
       >
         <DisconnectButton />
         <OnAir />
