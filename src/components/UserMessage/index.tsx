@@ -13,14 +13,14 @@ export const UserMessage: FC<UserMessageProps> = ({ message }) => {
 
   return (
     <motion.div
-      className="bg-green-300 mr-auto w-fit py-1 px-4 text-md rounded-xl max-w-lg z-50"
+      className="text-md z-50 mr-auto w-fit max-w-lg rounded-xl bg-green-300 px-4 py-1"
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
       }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-wrap my-4">
+      <div className="my-4 flex flex-wrap">
         {words.map((word, index) => {
           return (
             <Fragment key={index}>

@@ -46,7 +46,7 @@ export const ExpressionBlob: FC<ExpressionBlobProps> = ({ expression }) => {
 
   return (
     <motion.div
-      className="absolute size-40 bg-[var(--color)] transition-bg blur-lg"
+      className="transition-bg absolute size-40 bg-[var(--color)] blur-lg"
       style={{
         '--color': color,
       }}

@@ -21,7 +21,7 @@ const Template: StoryFn<ExpressionBlobProps> = () => {
   >([]);
 
   return (
-    <div className="bg-tan-400 min-h-screen w-screen p-8">
+    <div className="min-h-screen w-screen bg-tan-400 p-8">
       <ExpressionBlob expression="Admiration" />
       <ExpressionBlob expression="Anger" />
     </div>

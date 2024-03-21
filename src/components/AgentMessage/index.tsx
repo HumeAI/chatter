@@ -1,4 +1,4 @@
-import { cn, getTopNProsody } from '@/utils';
+import { cn } from '@/utils';
 import { AgentTranscriptMessage } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
 import { FC, Fragment, useMemo } from 'react';
@@ -15,7 +15,7 @@ export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
   return (
     <motion.div
       className={cn(
-        'bg-blue-300 ml-auto w-fit py-4 px-8 text-2xl rounded-xl max-w-xl opacity-80 z-10',
+        'z-10 ml-auto w-fit max-w-xl rounded-xl bg-blue-300 px-8 py-4 text-2xl opacity-80',
         // 'shadow-[10px_12px_0px_0px_white]',
       )}
       style={{
@@ -33,7 +33,7 @@ export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
     >
       <motion.div
         layout
-        className="flex flex-wrap my-4"
+        className="my-4 flex flex-wrap"
         variants={{
           hidden: { opacity: 0 },
           show: {

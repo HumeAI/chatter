@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -69,47 +71,47 @@
 @layer utilities {
   .font-thin {
     font-weight: 100;
-    font-variation-settings: "wght" 100;
+    font-variation-settings: 'wght' 100;
   }
 
   .font-extralight {
     font-weight: 150;
-    font-variation-settings: "wght" 150;
+    font-variation-settings: 'wght' 150;
   }
 
   .font-light {
     font-weight: 250;
-    font-variation-settings: "wght" 250;
+    font-variation-settings: 'wght' 250;
   }
 
   .font-normal {
     font-weight: 350;
-    font-variation-settings: "wght" 350;
+    font-variation-settings: 'wght' 350;
   }
 
   .font-medium {
     font-weight: 450;
-    font-variation-settings: "wght" 450;
+    font-variation-settings: 'wght' 450;
   }
 
   .font-semibold {
     font-weight: 550;
-    font-variation-settings: "wght" 550;
+    font-variation-settings: 'wght' 550;
   }
 
   .font-bold {
     font-weight: 650;
-    font-variation-settings: "wght" 650;
+    font-variation-settings: 'wght' 650;
   }
 
   .font-extrabold {
     font-weight: 750;
-    font-variation-settings: "wght" 750;
+    font-variation-settings: 'wght' 750;
   }
 
   .font-black {
     font-weight: 850;
-    font-variation-settings: "wght" 850;
+    font-variation-settings: 'wght' 850;
   }
 }
 

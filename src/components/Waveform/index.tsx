@@ -30,7 +30,8 @@ export const Waveform: FC<WaveformProps> = (props) => {
         {Array.from({ length: 24 }).map((_, index) => {
           const value = (fft[index] ?? 0) / 4;
           const height = Math.min(Math.max(value * 80, 2), 70);
-          const yOffset = 50 - height * 0.5;
+          // const yOffset = 50 - height * 0.5;
+          const yOffset = 50 - height;
 
           return (
             <motion.rect

@@ -1,26 +1,36 @@
 import { DisconnectButton } from '@/components/DisconnectButton';
-import { ExpressionBlobPane } from '@/components/ExpressionBlobPane';
 import { Messages } from '@/components/Messages';
+import { OnAir } from '@/components/OnAir';
 import { Waveform } from '@/components/Waveform';
-import { useVoice } from '@humeai/voice-react';
+import {
+  AgentTranscriptMessage,
+  UserTranscriptMessage,
+  useVoice,
+} from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useMemo, useState } from 'react';
+import { FC } from 'react';
 
-export const ConversationView = ({ transcriptMessages }) => {
+export type ConversationViewProps = {
+  transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
+};
+
+export const ConversationView: FC<ConversationViewProps> = ({
+  transcriptMessages,
+}) => {
   const { lastVoiceMessage } = useVoice();
 
   return (
     <AnimatePresence>
       <motion.div
-        className="bg-black w-screen h-screen"
+        className="h-screen w-screen bg-black"
         initial={{ y: -1000 }}
         animate={{ y: 0 }}
         exit={{ y: -1000 }}
         transition={{ duration: 0.5 }}
       >
         <DisconnectButton />
+        <OnAir />
         <Waveform message={lastVoiceMessage} />
-
         <div className="ml-auto mr-40 w-1/2">
           <Messages transcriptMessages={transcriptMessages} />
         </div>

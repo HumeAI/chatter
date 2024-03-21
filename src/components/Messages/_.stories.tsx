@@ -9,7 +9,7 @@ import {
   AgentTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
-import { createMockUserMessage, createMockAgentMessage } from '@/utils/mocks';
+import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
 import { useEffect, useState } from 'react';
 
 export default {
@@ -39,7 +39,7 @@ const Template: StoryFn<MessagesProps> = () => {
     }, 7000);
   }, []);
   return (
-    <div className="bg-black min-h-screen w-screen p-8">
+    <div className="min-h-screen w-screen bg-black p-8">
       <Messages transcriptMessages={messages} />
     </div>
   );
