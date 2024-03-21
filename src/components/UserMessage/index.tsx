@@ -13,7 +13,7 @@ export const UserMessage: FC<UserMessageProps> = ({ message }) => {
 
   return (
     <motion.div
-      className="bg-green-300 mr-auto w-fit py-2 px-4 text-md rounded-xl max-w-lg z-50"
+      className="bg-green-300 mr-auto w-fit py-1 px-4 text-md rounded-xl max-w-lg z-50"
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
