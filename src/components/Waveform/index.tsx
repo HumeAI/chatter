@@ -4,6 +4,8 @@ import { expressionColors } from 'expression-colors';
 import { motion } from 'framer-motion';
 import { FC, useMemo } from 'react';
 
+type Expression = keyof typeof expressionColors;
+
 type WaveformProps = {
   message: AgentTranscriptMessage | null;
 };
@@ -14,7 +16,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
   const top3Expressions = useMemo(() => {
     return getTopNProsody(message?.models.prosody?.scores || {}, 3).map(
       ({ name }) => {
-        return `rgba(${expressionColors[name].rgba.join(', ')})`;
+        return `rgba(${expressionColors[name as Expression].rgba.join(', ')})`;
       },
     );
   }, [message]);
