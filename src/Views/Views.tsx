@@ -3,14 +3,14 @@ import { HomeView } from '@/Views/HomeView';
 import { useVoice } from '@humeai/voice-react';
 import { match } from 'ts-pattern';
 
-export const Views = () => {
+export const Views = ({ transcriptMessages }) => {
   const { status } = useVoice();
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-beige-300">
       {match(status.value)
         .with('connected', () => {
-          return <ConversationView />;
+          return <ConversationView transcriptMessages={transcriptMessages} />;
         })
         .with('disconnected', 'connecting', () => {
           return <HomeView />;
