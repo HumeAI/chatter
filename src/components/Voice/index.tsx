@@ -2,12 +2,18 @@
 import { Views } from '@/Views/Views';
 import { getClientToken } from '@/components/Voice/getClientToken';
 import { systemPrompt } from '@/components/Voice/prompts';
-import { VoiceProvider } from '@humeai/voice-react';
+import {
+  AgentTranscriptMessage,
+  UserTranscriptMessage,
+  VoiceProvider,
+} from '@humeai/voice-react';
 import { useState } from 'react';
 import useSWR from 'swr';
 
 export const Voice = () => {
-  const [transcriptMessages, setTranscriptMessages] = useState([]);
+  const [transcriptMessages, setTranscriptMessages] = useState<
+    Array<UserTranscriptMessage | AgentTranscriptMessage>
+  >([]);
   const { data } = useSWR('/api/access-token', getClientToken);
 
   const accessToken = data?.access_token || '';
