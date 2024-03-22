@@ -12,9 +12,9 @@ export const OnAir = () => {
     >
       <motion.div
         className={cn(
-          'flex w-fit items-center justify-center rounded-lg border-4 p-1 px-2 pr-3 [text-shadow:_0px_0px_4px_white,_3px_3px_10px_white,_0px_0px_15px_#f02eaa,_0px_0px_25px_#f02eaa,_0px_0px_35px_#f02eaa]',
+          'flex w-fit items-center justify-center rounded-xl border-4 p-1 px-3 pr-3 [text-shadow:_0px_0px_4px_white,_3px_3px_10px_white,_0px_0px_15px_#f02eaa,_0px_0px_25px_#f02eaa,_0px_0px_35px_#f02eaa]',
           'border-white shadow-[0_0_2px_#fff,inset_0_0_2px_#f02eaa,0_0_5px_#fff,0_0_15px_#f02eaa,0_0_20px_#f02eaa,0_0_25px_#f02eaa]',
-          'font-neon text-8xl uppercase tracking-tighter text-pink-100',
+          'font-neon text-9xl uppercase text-pink-100',
         )}
         initial={{ opacity: 1 }}
         animate={{ opacity: [1, 0, 1, 0, 1] }}

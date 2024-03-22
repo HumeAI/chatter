@@ -7,20 +7,26 @@ import {
   UserTranscriptMessage,
   useVoice,
 } from '@humeai/voice-react';
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
 
 export type ViewsProps = {
   transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
+  clearMessages: () => void;
 };
 
-export const Views: FC<ViewsProps> = ({ transcriptMessages }) => {
-  const { status, sendText } = useVoice();
+export const Views: FC<ViewsProps> = ({
+  transcriptMessages,
+  clearMessages,
+}) => {
+  const { status, sendText, disconnect } = useVoice();
   const isFirstMessageSent = useRef(false);
+  const [activeView, setActiveView] = useState<
+    'home' | 'error' | 'conversation'
+  >('home');
 
   useEffect(() => {
     if (isFirstMessageSent.current === false && status.value === 'connected') {
-      console.log('sending');
       isFirstMessageSent.current = true;
       sendText(initialMessage);
     }
@@ -31,16 +37,26 @@ export const Views: FC<ViewsProps> = ({ transcriptMessages }) => {
 
   return (
     <div className="h-screen w-screen bg-tan-300">
-      {match(status.value)
-        .with('connected', () => {
-          return <ConversationView transcriptMessages={transcriptMessages} />;
+      {match(activeView)
+        .with('conversation', () => {
+          return (
+            <ConversationView
+              transcriptMessages={transcriptMessages}
+              onDisconnect={() => {
+                disconnect();
+                clearMessages();
+                setActiveView('home');
+              }}
+            />
+          );
         })
-        .with('disconnected', 'connecting', () => {
-          return <HomeView />;
+        .with('home', () => {
+          return <HomeView setActiveView={setActiveView} />;
         })
-        .otherwise(() => {
-          return <ErrorView />;
-        })}
+        .with('error', () => {
+          return <ErrorView setActiveView={setActiveView} />;
+        })
+        .exhaustive()}
     </div>
   );
 };

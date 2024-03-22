@@ -8,4 +8,4 @@ Instead of saying that you are ready to help, ask the user if they want to learn
 `;
 
 export const initialMessage =
-  'Please tell me welcome and introduce the top 5 news headlines of the day. Do not acknowledge that you received this request. Start your response with: Welcome to Chatter, a daily news podcast';
+  'Please tell me welcome and introduce the top 3 news headlines of the day. Do not acknowledge that you received this request. Start your response with: Welcome to Chatter, a daily news podcast';

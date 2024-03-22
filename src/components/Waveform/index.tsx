@@ -26,7 +26,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
       <motion.svg
         className={'absolute -bottom-96 left-20'}
         viewBox={'0 0 100 100'}
-        width={1000}
+        width={1200}
         height={800}
       >
         {Array.from({ length: 24 }).map((_, index) => {

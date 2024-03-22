@@ -13,9 +13,9 @@ export type MessagesProps = {
 export const Messages: FC<MessagesProps> = ({ transcriptMessages }) => {
   return (
     <div className="my-8 flex flex-col gap-10 px-10">
-      {transcriptMessages.map((message, index) => {
+      {transcriptMessages.map((message) => {
         return (
-          <Fragment key={index}>
+          <Fragment key={message.receivedAt.getTime()}>
             {message.type === 'user_message' ? (
               <UserMessage message={message} />
             ) : (
