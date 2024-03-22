@@ -1,8 +1,10 @@
 import { getTopNProsody } from '@/utils';
-import { AgentTranscriptMessage, useVoice } from '@humeai/voice-react';
+import type { AgentTranscriptMessage } from '@humeai/voice-react';
+import { useVoice } from '@humeai/voice-react';
 import { expressionColors } from 'expression-colors';
 import { motion } from 'framer-motion';
-import { FC, useMemo } from 'react';
+import type { FC } from 'react';
+import { useMemo } from 'react';
 
 type Expression = keyof typeof expressionColors;
 

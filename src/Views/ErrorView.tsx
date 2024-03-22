@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
 
 type ErrorViewProps = {
-  setActiveView: (view: 'home' | 'error' | 'conversation') => void;
+  setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;
 };
 
 export const ErrorView: FC<ErrorViewProps> = ({ setActiveView }) => {

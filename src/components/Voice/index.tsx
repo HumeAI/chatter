@@ -2,11 +2,11 @@
 import { Views } from '@/Views/Views';
 import { getClientToken } from '@/components/Voice/getClientToken';
 import { systemPrompt } from '@/components/Voice/prompts';
-import {
+import type {
   AgentTranscriptMessage,
   UserTranscriptMessage,
-  VoiceProvider,
 } from '@humeai/voice-react';
+import { VoiceProvider } from '@humeai/voice-react';
 import { useState } from 'react';
 import useSWR from 'swr';
 
