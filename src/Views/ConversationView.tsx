@@ -1,4 +1,3 @@
-import { DisconnectButton } from '@/components/DisconnectButton';
 import { Messages } from '@/components/Messages';
 import { OnAir } from '@/components/OnAir';
 import { Waveform } from '@/components/Waveform';
@@ -12,10 +11,12 @@ import { FC } from 'react';
 
 export type ConversationViewProps = {
   transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
+  onDisconnect: () => void;
 };
 
 export const ConversationView: FC<ConversationViewProps> = ({
   transcriptMessages,
+  onDisconnect,
 }) => {
   const { lastVoiceMessage } = useVoice();
 
@@ -28,7 +29,12 @@ export const ConversationView: FC<ConversationViewProps> = ({
         exit={{ x: 1000 }}
         transition={{ duration: 0.1 }}
       >
-        <DisconnectButton />
+        <div className="w-full flex justify-end">
+          <button className="text-white opacity-50 p-4" onClick={onDisconnect}>
+            Disconnect
+          </button>
+        </div>
+
         <OnAir />
         <Waveform message={lastVoiceMessage} />
         <div className="ml-auto mr-40 w-1/2">

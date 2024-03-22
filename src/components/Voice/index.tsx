@@ -38,15 +38,23 @@ export const Voice = () => {
           message.type === 'user_message' ||
           message.type === 'assistant_message'
         ) {
-          if (transcriptMessages.length === 3) {
+          if (transcriptMessages.length >= 3) {
             setTranscriptMessages([message]);
           } else {
             setTranscriptMessages((p) => p.concat(message));
           }
         }
       }}
+      onClose={() => {
+        setTranscriptMessages([]);
+      }}
     >
-      <Views transcriptMessages={transcriptMessages} />
+      <Views
+        transcriptMessages={transcriptMessages}
+        clearMessages={() => {
+          setTranscriptMessages([]);
+        }}
+      />
     </VoiceProvider>
   );
 };

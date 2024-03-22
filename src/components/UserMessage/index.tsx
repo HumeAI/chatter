@@ -12,7 +12,7 @@ export const UserMessage: FC<UserMessageProps> = ({ message }) => {
 
   return (
     <motion.div
-      className="z-50 mr-auto w-fit max-w-lg rounded-t-xl rounded-br-xl bg-green-300 px-4 py-2 text-lg"
+      className="z-50 mr-auto w-fit max-w-lg rounded-t-3xl rounded-br-3xl bg-green-300 px-4 py-4 text-lg -mb-4 mt-8"
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
@@ -22,9 +22,9 @@ export const UserMessage: FC<UserMessageProps> = ({ message }) => {
       <div className="flex flex-wrap">
         {words.map((word, index) => {
           return (
-            <Fragment key={index}>
-              <motion.span key={`${index}__${word}`}>{word}</motion.span>
-              <span>&nbsp;</span>
+            <Fragment key={`user-${index}__${word}`}>
+              <motion.span>{word}</motion.span>
+              {index !== words.length - 1 && <span>&nbsp;</span>}
             </Fragment>
           );
         })}

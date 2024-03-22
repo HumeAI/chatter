@@ -1,7 +1,12 @@
 import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
+import { FC } from 'react';
 
-export const HomeView = () => {
+type HomeViewProps = {
+  setActiveView: (view: 'home' | 'error' | 'conversation') => void;
+};
+
+export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
@@ -15,9 +20,15 @@ export const HomeView = () => {
         Chatter
       </motion.h1>
       <motion.button
-        className="z-10 rounded-lg bg-black px-4 py-2 text-3xl text-white hover:shadow-[8px_8px_#f02eaa]"
+        className="z-10 rounded-lg bg-black px-4 py-2 text-3xl text-white hover:shadow-[8px_8px_#f02eaa] disabled:opacity-50 disabled:cursor-not-allowed"
         onClick={() => {
-          void connect();
+          void connect()
+            .then(() => {
+              setActiveView('conversation');
+            })
+            .catch(() => {
+              setActiveView('error');
+            });
         }}
         disabled={status.value === 'connecting'}
         initial={{ opacity: 0 }}
