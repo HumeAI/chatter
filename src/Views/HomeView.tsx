@@ -10,9 +10,9 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center gap-2 bg-tan-300">
+    <div className="flex h-screen w-screen flex-col items-center gap-8 bg-tan-300">
       <motion.h1
-        className="mx-auto mt-56 text-[7em]"
+        className="mx-auto mt-64 text-7xl md:text-[7em]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.3 }}
@@ -20,7 +20,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         Chatter
       </motion.h1>
       <motion.button
-        className="z-10 rounded-lg bg-black px-4 py-2 text-3xl text-white hover:shadow-[8px_8px_#f02eaa] disabled:cursor-not-allowed disabled:opacity-50"
+        className="z-10 rounded-lg bg-black px-4 py-2 text-xl md:text-3xl text-white hover:shadow-[8px_8px_#f02eaa] disabled:cursor-not-allowed disabled:opacity-50"
         onClick={() => {
           void connect()
             .then(() => {
@@ -38,15 +38,15 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         {status.value === 'connecting' ? 'Connecting...' : 'Start'}
       </motion.button>
       <motion.svg
-        className="fixed bottom-16 left-16 sm:-bottom-80 md:bottom-0 lg:h-screen lg:w-screen"
+        className="fixed bottom-[-200px] left-0 md:left-[-50px] md:bottom-[-120px] lg:left-[-160px] lg:bottom-0 h-screen w-screen"
         id="Layer_1"
         data-name="Layer 1"
-        viewBox="0 0 4065.31 2200"
+        viewBox="0 0 3000 2200"
         fill="none"
       >
         <rect
           className="fill-transparent stroke-0"
-          width="4065.31"
+          width="3000"
           height="2200"
         />
         <motion.path
