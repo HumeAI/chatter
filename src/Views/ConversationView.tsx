@@ -1,13 +1,13 @@
 import { Messages } from '@/components/Messages';
 import { OnAir } from '@/components/OnAir';
 import { Waveform } from '@/components/Waveform';
-import {
+import type {
   AgentTranscriptMessage,
   UserTranscriptMessage,
-  useVoice,
 } from '@humeai/voice-react';
+import { useVoice } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 export type ConversationViewProps = {
   transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
@@ -29,8 +29,8 @@ export const ConversationView: FC<ConversationViewProps> = ({
         exit={{ x: 1000 }}
         transition={{ duration: 0.1 }}
       >
-        <div className="w-full flex justify-end">
-          <button className="text-white opacity-50 p-4" onClick={onDisconnect}>
+        <div className="flex w-full justify-end">
+          <button className="p-4 text-white opacity-50" onClick={onDisconnect}>
             Disconnect
           </button>
         </div>

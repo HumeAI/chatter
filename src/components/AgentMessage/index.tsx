@@ -1,7 +1,8 @@
 import { cn } from '@/utils';
-import { AgentTranscriptMessage } from '@humeai/voice-react';
+import type { AgentTranscriptMessage } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { FC, Fragment, useMemo, useRef } from 'react';
+import type { FC } from 'react';
+import { Fragment, useMemo, useRef } from 'react';
 
 function randomBounded(lowerBound: number, upperBound: number) {
   return Math.floor(Math.random() * (upperBound - lowerBound + 1)) + lowerBound;

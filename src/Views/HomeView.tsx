@@ -1,18 +1,18 @@
 import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
-import { FC } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
 
 type HomeViewProps = {
-  setActiveView: (view: 'home' | 'error' | 'conversation') => void;
+  setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;
 };
 
 export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
-    <div className="mx-auto my-[25vh] flex w-full flex-col items-center justify-center gap-2">
+    <div className="flex h-screen w-screen flex-col items-center gap-2 bg-tan-300">
       <motion.h1
-        className="text-[7em]"
+        className="mx-auto mt-56 text-[7em]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.3 }}
@@ -20,7 +20,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         Chatter
       </motion.h1>
       <motion.button
-        className="z-10 rounded-lg bg-black px-4 py-2 text-3xl text-white hover:shadow-[8px_8px_#f02eaa] disabled:opacity-50 disabled:cursor-not-allowed"
+        className="z-10 rounded-lg bg-black px-4 py-2 text-3xl text-white hover:shadow-[8px_8px_#f02eaa] disabled:cursor-not-allowed disabled:opacity-50"
         onClick={() => {
           void connect()
             .then(() => {
@@ -38,7 +38,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         {status.value === 'connecting' ? 'Connecting...' : 'Start'}
       </motion.button>
       <motion.svg
-        className="fixed inset-0 -left-10 h-screen w-screen"
+        className="fixed bottom-16 left-16 sm:-bottom-80 md:bottom-0 lg:h-screen lg:w-screen"
         id="Layer_1"
         data-name="Layer 1"
         viewBox="0 0 4065.31 2200"

@@ -2,12 +2,13 @@ import { ConversationView } from '@/Views/ConversationView';
 import { ErrorView } from '@/Views/ErrorView';
 import { HomeView } from '@/Views/HomeView';
 import { initialMessage } from '@/components/Voice/prompts';
-import {
+import type {
   AgentTranscriptMessage,
   UserTranscriptMessage,
-  useVoice,
 } from '@humeai/voice-react';
-import { FC, useEffect, useRef, useState } from 'react';
+import { useVoice } from '@humeai/voice-react';
+import type { FC } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
 
 export type ViewsProps = {
@@ -36,7 +37,7 @@ export const Views: FC<ViewsProps> = ({
   }, [sendText, status.value]);
 
   return (
-    <div className="h-screen w-screen bg-tan-300">
+    <>
       {match(activeView)
         .with('conversation', () => {
           return (
@@ -57,6 +58,6 @@ export const Views: FC<ViewsProps> = ({
           return <ErrorView setActiveView={setActiveView} />;
         })
         .exhaustive()}
-    </div>
+    </>
   );
 };

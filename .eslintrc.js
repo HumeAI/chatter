@@ -30,6 +30,27 @@ module.exports = {
       ],
     },
   },
+  // overrides: [
+  //   {
+  //     files: ['*.ts', '*.tsx'],
+  //     extends: [
+  //       'airbnb-typescript',
+  //       'plugin:@typescript-eslint/recommended',
+  //       'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  //     ],
+  //     rules: {
+  //       '@typescript-eslint/no-unused-vars': [
+  //         'error',
+  //         {
+  //           argsIgnorePattern: '^_',
+  //           varsIgnorePattern: '^_',
+  //           caughtErrorsIgnorePattern: '^_',
+  //           ignoreRestSiblings: true,
+  //         },
+  //       ],
+  //     },
+  //   },
+  // ],
   rules: {
     'arrow-body-style': 'off',
     curly: 'error',

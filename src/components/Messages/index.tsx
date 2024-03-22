@@ -1,10 +1,11 @@
 import { AgentMessage } from '@/components/AgentMessage';
 import { UserMessage } from '@/components/UserMessage';
-import {
+import type {
   AgentTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
-import { FC, Fragment } from 'react';
+import type { FC } from 'react';
+import { Fragment } from 'react';
 
 export type MessagesProps = {
   transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;

@@ -1,4 +1,4 @@
-import {
+import type {
   AgentTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';

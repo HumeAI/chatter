@@ -1,6 +1,7 @@
-import { UserTranscriptMessage } from '@humeai/voice-react';
+import type { UserTranscriptMessage } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
-import { FC, Fragment, useMemo } from 'react';
+import type { FC } from 'react';
+import { Fragment, useMemo } from 'react';
 
 export type UserMessageProps = {
   message: UserTranscriptMessage;
@@ -12,7 +13,7 @@ export const UserMessage: FC<UserMessageProps> = ({ message }) => {
 
   return (
     <motion.div
-      className="z-50 mr-auto w-fit max-w-lg rounded-t-3xl rounded-br-3xl bg-green-300 px-4 py-4 text-lg -mb-4 mt-8"
+      className="z-50 -mb-4 mr-auto mt-8 w-fit max-w-lg rounded-t-3xl rounded-br-3xl bg-green-300 p-4 text-lg"
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,

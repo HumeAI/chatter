@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
-import {
+import type {
   AgentTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
