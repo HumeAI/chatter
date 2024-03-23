@@ -1,3 +1,4 @@
+import { Button } from '@/components/Button';
 import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
 import type { Dispatch, FC, SetStateAction } from 'react';
@@ -10,33 +11,37 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center gap-8 bg-tan-300">
+    <div className="flex h-screen w-screen flex-col items-center gap-4 md:gap-8 bg-tan-300">
       <motion.h1
-        className="mx-auto mt-64 text-7xl md:text-[7em]"
+        className="mx-auto mt-40 lg:mt-72 text-7xl md:text-[7em]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
+        transition={{ duration: 1.3, delay: 0.3 }}
       >
         Chatter
       </motion.h1>
-      <motion.button
-        className="z-10 rounded-lg bg-black px-4 py-2 text-xl md:text-3xl text-white hover:shadow-[8px_8px_#f02eaa] disabled:cursor-not-allowed disabled:opacity-50"
-        onClick={() => {
-          void connect()
-            .then(() => {
-              setActiveView('conversation');
-            })
-            .catch(() => {
-              setActiveView('error');
-            });
-        }}
-        disabled={status.value === 'connecting'}
+      <motion.div
+        className="z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1 }}
+        transition={{ duration: 0.9, delay: 1 }}
       >
-        {status.value === 'connecting' ? 'Connecting...' : 'Start'}
-      </motion.button>
+        <Button
+          onClick={() => {
+            void connect()
+              .then(() => {
+                setActiveView('conversation');
+              })
+              .catch(() => {
+                setActiveView('error');
+              });
+          }}
+          disabled={status.value === 'connecting'}
+        >
+          {status.value === 'connecting' ? 'Connecting...' : 'Start'}
+        </Button>
+      </motion.div>
+
       <motion.svg
         className="fixed bottom-[-200px] left-0 md:left-[-50px] md:bottom-[-120px] lg:left-[-160px] lg:bottom-0 h-screen w-screen"
         id="Layer_1"
