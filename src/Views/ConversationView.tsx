@@ -8,6 +8,7 @@ import type {
 import { useVoice } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { FC } from 'react';
+import { DoorOpen } from 'lucide-react';
 
 export type ConversationViewProps = {
   transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
@@ -30,8 +31,12 @@ export const ConversationView: FC<ConversationViewProps> = ({
         transition={{ duration: 0.1 }}
       >
         <div className="flex w-full justify-end">
-          <button className="p-4 text-white opacity-50" onClick={onDisconnect}>
-            Disconnect
+          <button
+            className="p-4 text-white opacity-50 flex gap-1"
+            onClick={onDisconnect}
+          >
+            <DoorOpen strokeWidth={1} />
+            <span>Disconnect</span>
           </button>
         </div>
 

@@ -29,8 +29,11 @@
     --accent-orange-200: 255 219 176; /* #ffdbb0 */
     --accent-orange-100: 255 246 235; /* #fff6eb */
 
-    --accent-pink-400: 161, 109, 107; /* #a16d6b */
-    --accent-pink-300: 251, 171, 167; /* #a16d6b */
+    --hot-pink-400: 240 46 170;
+    --hot-pink-100: 255 232 255;
+
+    --accent-pink-400: 240 46 170; /* #a16d6b */
+    --accent-pink-300: 251 171 167; /* #a16d6b */
     --accent-pink-200: 252 201 199; /* #a16d6b */
     --accent-pink-100: 254 242 241; /* #a16d6b */
 

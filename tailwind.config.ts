@@ -67,10 +67,8 @@ const config: Config = {
         },
 
         pink: {
-          400: 'rgb(var(--accent-pink-400) / <alpha-value>)',
-          300: 'rgb(var(--accent-pink-300) / <alpha-value>)',
-          200: 'rgb(var(--accent-pink-200) / <alpha-value>)',
-          100: 'rgb(var(--accent-pink-100) / <alpha-value>)',
+          400: 'rgb(var(--hot-pink-400) / <alpha-value>)',
+          100: 'rgb(var(--hot-pink-100) / <alpha-value>)',
         },
 
         purple: {
