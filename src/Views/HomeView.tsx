@@ -11,9 +11,9 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center gap-4 md:gap-8 bg-tan-300">
+    <div className="flex h-screen w-screen flex-col items-center gap-4 bg-tan-300 md:gap-8">
       <motion.h1
-        className="mx-auto mt-40 lg:mt-72 text-7xl md:text-[7em]"
+        className="mx-auto mt-40 text-7xl md:text-[7em] lg:mt-72"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3, delay: 0.3 }}
@@ -43,7 +43,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
       </motion.div>
 
       <motion.svg
-        className="fixed bottom-[-200px] left-0 md:left-[-50px] md:bottom-[-120px] lg:left-[-160px] lg:bottom-0 h-screen w-screen"
+        className="fixed bottom-[-200px] left-0 h-screen w-screen md:bottom-[-120px] md:left-[-50px] lg:bottom-0 lg:left-[-160px]"
         id="Layer_1"
         data-name="Layer 1"
         viewBox="0 0 3000 2200"

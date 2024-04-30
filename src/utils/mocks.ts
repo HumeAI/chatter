@@ -1,5 +1,5 @@
 import type {
-  AgentTranscriptMessage,
+  AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { randSentence } from '@ngneat/falso';
@@ -27,8 +27,9 @@ export function createMockAgentMessage({
 }: {
   content?: string;
   date?: Date;
-} = {}): AgentTranscriptMessage {
+} = {}): AssistantTranscriptMessage {
   return {
+    from_text: false,
     id: nanoid(),
     type: 'assistant_message',
     message: {

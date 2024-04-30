@@ -1,9 +1,8 @@
 import { ConversationView } from '@/Views/ConversationView';
 import { ErrorView } from '@/Views/ErrorView';
 import { HomeView } from '@/Views/HomeView';
-import { initialMessage } from '@/components/Voice/prompts';
 import type {
-  AgentTranscriptMessage,
+  AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
@@ -11,8 +10,11 @@ import type { FC } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
 
+const initialMessage =
+  'Please tell me welcome and introduce the top 3 news headlines of the day, then ask me which headlines I would like to dive into more. Do not acknowledge that you received this request. Start your response with: Welcome to Chatter, a daily news podcast';
+
 export type ViewsProps = {
-  transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
+  transcriptMessages: Array<UserTranscriptMessage | AssistantTranscriptMessage>;
   clearMessages: () => void;
 };
 
@@ -20,7 +22,7 @@ export const Views: FC<ViewsProps> = ({
   transcriptMessages,
   clearMessages,
 }) => {
-  const { status, sendText, disconnect } = useVoice();
+  const { status, sendUserInput, disconnect } = useVoice();
   const isFirstMessageSent = useRef(false);
   const [activeView, setActiveView] = useState<
     'home' | 'error' | 'conversation'
@@ -29,12 +31,12 @@ export const Views: FC<ViewsProps> = ({
   useEffect(() => {
     if (isFirstMessageSent.current === false && status.value === 'connected') {
       isFirstMessageSent.current = true;
-      sendText(initialMessage);
+      sendUserInput(initialMessage);
     }
     return () => {
       isFirstMessageSent.current = false;
     };
-  }, [sendText, status.value]);
+  }, [sendUserInput, status.value]);
 
   return (
     <>

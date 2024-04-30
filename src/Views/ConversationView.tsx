@@ -2,7 +2,7 @@ import { Messages } from '@/components/Messages';
 import { OnAir } from '@/components/OnAir';
 import { Waveform } from '@/components/Waveform';
 import type {
-  AgentTranscriptMessage,
+  AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
@@ -11,7 +11,7 @@ import type { FC } from 'react';
 import { DoorOpen } from 'lucide-react';
 
 export type ConversationViewProps = {
-  transcriptMessages: Array<UserTranscriptMessage | AgentTranscriptMessage>;
+  transcriptMessages: Array<UserTranscriptMessage | AssistantTranscriptMessage>;
   onDisconnect: () => void;
 };
 
@@ -32,7 +32,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
       >
         <div className="flex w-full justify-end">
           <button
-            className="p-4 text-white opacity-50 flex gap-1"
+            className="flex gap-1 p-4 text-white opacity-50"
             onClick={onDisconnect}
           >
             <DoorOpen strokeWidth={1} />

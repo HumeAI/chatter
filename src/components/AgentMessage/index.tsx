@@ -1,5 +1,5 @@
 import { cn } from '@/utils';
-import type { AgentTranscriptMessage } from '@humeai/voice-react';
+import type { AssistantTranscriptMessage } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { FC } from 'react';
 import { Fragment, useMemo, useRef } from 'react';
@@ -9,7 +9,7 @@ function randomBounded(lowerBound: number, upperBound: number) {
 }
 
 export type AgentMessageProps = {
-  message: AgentTranscriptMessage;
+  message: AssistantTranscriptMessage;
 };
 
 export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
