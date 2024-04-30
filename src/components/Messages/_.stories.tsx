@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 
 import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
 import type {
-  AgentTranscriptMessage,
+  AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ export default {
 
 const Template: StoryFn<MessagesProps> = () => {
   const [messages, setMessages] = useState<
-    Array<UserTranscriptMessage | AgentTranscriptMessage>
+    Array<UserTranscriptMessage | AssistantTranscriptMessage>
   >([]);
 
   useEffect(() => {

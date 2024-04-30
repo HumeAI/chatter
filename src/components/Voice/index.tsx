@@ -1,9 +1,8 @@
 'use client';
 import { Views } from '@/Views/Views';
 import { getClientToken } from '@/components/Voice/getClientToken';
-import { systemPrompt } from '@/components/Voice/prompts';
 import type {
-  AgentTranscriptMessage,
+  AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { VoiceProvider } from '@humeai/voice-react';
@@ -12,7 +11,7 @@ import useSWR from 'swr';
 
 export const Voice = () => {
   const [transcriptMessages, setTranscriptMessages] = useState<
-    Array<UserTranscriptMessage | AgentTranscriptMessage>
+    Array<UserTranscriptMessage | AssistantTranscriptMessage>
   >([]);
   const { data } = useSWR('/api/access-token', getClientToken);
 
@@ -25,12 +24,8 @@ export const Voice = () => {
         value: accessToken,
       }}
       hostname={process.env.NEXT_PUBLIC_VOICE_HOSTNAME}
-      systemPrompt={systemPrompt}
       onMessage={(message) => {
-        if (
-          message.type === 'user_message' &&
-          message.models.prosody === null
-        ) {
+        if (message.type === 'user_message' && !message.models.prosody) {
           return;
         }
 
@@ -48,6 +43,7 @@ export const Voice = () => {
       onClose={() => {
         setTranscriptMessages([]);
       }}
+      configId={process.env.NEXT_PUBLIC_VOICE_CONFIG_ID}
     >
       <Views
         transcriptMessages={transcriptMessages}

@@ -1,5 +1,5 @@
 import { getTopNProsody } from '@/utils';
-import type { AgentTranscriptMessage } from '@humeai/voice-react';
+import type { AssistantTranscriptMessage } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
 import { expressionColors } from 'expression-colors';
 import { motion } from 'framer-motion';
@@ -9,7 +9,7 @@ import { useMemo } from 'react';
 type Expression = keyof typeof expressionColors;
 
 type WaveformProps = {
-  message: AgentTranscriptMessage | null;
+  message: AssistantTranscriptMessage | null;
 };
 export const Waveform: FC<WaveformProps> = (props) => {
   const { message } = props;

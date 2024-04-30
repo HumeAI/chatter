@@ -1,5 +1,5 @@
 {
-  "name": "hackathon",
+  "name": "chatter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
-    "@humeai/voice-react": "0.0.0-beta.7",
+    "@humeai/voice-react": "0.1.2-beta.1",
     "@ngneat/falso": "^7.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
