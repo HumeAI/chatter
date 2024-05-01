@@ -34,9 +34,15 @@ const Template: StoryFn<MessagesProps> = () => {
     setTimeout(() => {
       setMessages((p) => p.concat(createMockUserMessage()));
     }, 7000);
+    setTimeout(() => {
+      setMessages((p) => p.concat(createMockAgentMessage()));
+    }, 10000);
+    setTimeout(() => {
+      setMessages((p) => p.concat(createMockAgentMessage()));
+    }, 12000);
   }, []);
   return (
-    <div className="min-h-screen w-screen bg-black p-8">
+    <div className="h-screen w-screen bg-black p-8">
       <Messages transcriptMessages={messages} />
     </div>
   );
