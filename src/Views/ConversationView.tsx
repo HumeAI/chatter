@@ -7,19 +7,32 @@ import type {
 } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import type { FC } from 'react';
+import { type FC, useMemo } from 'react';
 import { DoorOpen } from 'lucide-react';
 
 export type ConversationViewProps = {
-  transcriptMessages: Array<UserTranscriptMessage | AssistantTranscriptMessage>;
   onDisconnect: () => void;
 };
 
 export const ConversationView: FC<ConversationViewProps> = ({
-  transcriptMessages,
   onDisconnect,
 }) => {
-  const { lastVoiceMessage } = useVoice();
+  const { lastVoiceMessage, messages } = useVoice();
+
+  const transcriptMessages = useMemo(() => {
+    return messages
+      .filter(
+        (
+          message,
+        ): message is UserTranscriptMessage | AssistantTranscriptMessage => {
+          return (
+            message.type === 'assistant_message' ||
+            message.type === 'user_message'
+          );
+        },
+      )
+      .slice(1);
+  }, [messages]);
 
   return (
     <AnimatePresence>
@@ -42,7 +55,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
 
         <OnAir />
         <Waveform message={lastVoiceMessage} />
-        <div className="ml-auto mr-40 w-1/2">
+        <div className="ml-auto mr-40 h-[80vh] w-1/2">
           <Messages transcriptMessages={transcriptMessages} />
         </div>
       </motion.div>
