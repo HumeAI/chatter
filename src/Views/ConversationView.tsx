@@ -19,7 +19,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
 }) => {
   const { lastVoiceMessage, messages } = useVoice();
 
-  const transcriptMessages = useMemo(() => {
+  const filteredMessages = useMemo(() => {
     return messages
       .filter(
         (
@@ -55,8 +55,8 @@ export const ConversationView: FC<ConversationViewProps> = ({
 
         <OnAir />
         <Waveform message={lastVoiceMessage} />
-        <div className="ml-auto mr-40 h-[80vh] w-1/2">
-          <Messages transcriptMessages={transcriptMessages} />
+        <div className="ml-auto mr-40 h-[80vh] w-full lg:w-3/4 xl:w-1/2">
+          <Messages transcriptMessages={filteredMessages} />
         </div>
       </motion.div>
     </AnimatePresence>
