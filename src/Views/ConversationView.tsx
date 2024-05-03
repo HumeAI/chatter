@@ -37,7 +37,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
   return (
     <AnimatePresence>
       <motion.div
-        className="h-screen w-screen bg-black"
+        className="flex h-screen w-screen flex-col overflow-hidden bg-black"
         initial={{ x: 1000 }}
         animate={{ x: 0 }}
         exit={{ x: 1000 }}
@@ -55,9 +55,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
 
         <OnAir />
         <Waveform message={lastVoiceMessage} />
-        <div className="ml-auto mr-40 h-[80vh] w-full lg:w-3/4 xl:w-1/2">
-          <Messages transcriptMessages={filteredMessages} />
-        </div>
+        <Messages transcriptMessages={filteredMessages} />
       </motion.div>
     </AnimatePresence>
   );

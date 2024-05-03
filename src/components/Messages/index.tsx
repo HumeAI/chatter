@@ -51,7 +51,7 @@ export const Messages: FC<MessagesProps> = ({ transcriptMessages }) => {
 
   return (
     <div
-      className="flex size-full flex-col gap-10 overflow-y-auto px-10 py-[50px]"
+      className="ml-auto flex h-[90vh] w-screen flex-col gap-10 overflow-y-auto px-20 py-12 md:px-24 lg:w-3/4 xl:w-2/3"
       ref={messagesWrapper}
     >
       {transcriptMessages.map((message) => {
