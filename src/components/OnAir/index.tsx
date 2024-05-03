@@ -14,7 +14,7 @@ export const OnAir = () => {
         className={cn(
           'flex w-fit items-center justify-center rounded-xl border-4 p-1 px-3 [text-shadow:_0px_0px_4px_white,_3px_3px_10px_white,_0px_0px_15px_theme(colors.pink.400),_0px_0px_25px_theme(colors.pink.400),_0px_0px_35px_theme(colors.pink.400)]',
           'border-white shadow-[0_0_2px_theme(colors.pink.100),inset_0_0_2px_theme(colors.pink.400),0_0_5px_theme(colors.pink.100),0_0_15px_theme(colors.pink.400),0_0_20px_theme(colors.pink.400),0_0_25px_theme(colors.pink.400)]',
-          'font-neon text-9xl uppercase text-pink-100',
+          'font-neon text-6xl uppercase text-pink-100 sm:text-9xl',
         )}
         initial={{ opacity: 1 }}
         animate={{ opacity: [1, 0, 1, 0, 1] }}
@@ -39,7 +39,7 @@ export const OnAir = () => {
           n
         </motion.span>
         <motion.span
-          className="ml-8"
+          className="ml-4 sm:ml-8"
           initial={{ opacity: 1 }}
           animate={{ opacity: [1, 0, 1] }}
           transition={{

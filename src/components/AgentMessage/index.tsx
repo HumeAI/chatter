@@ -17,13 +17,13 @@ export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
     return message.message.content.split(' ');
   }, [message.message.content]);
 
-  const finalX = useRef(randomBounded(-100, 0));
+  const finalX = useRef(randomBounded(-50, 0));
 
   return (
     <AnimatePresence>
       <motion.div
         className={cn(
-          'z-10 ml-auto w-fit max-w-xl rounded-t-3xl rounded-bl-3xl bg-blue-300 px-8 py-4 text-2xl opacity-80',
+          'z-10 ml-auto w-fit max-w-xl rounded-t-3xl rounded-bl-3xl bg-blue-300 px-4 py-2 text-lg opacity-80 md:px-8 md:py-4 md:text-2xl',
         )}
         style={{
           boxShadow:

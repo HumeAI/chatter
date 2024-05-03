@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const ScreenSize = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -27,7 +27,7 @@ export const ScreenSize = () => {
       <span className={'tabular-nums'}>
         {width.toLocaleString()} {'×'} {height.toLocaleString()}
       </span>
-      <div className="h-4 w-px bg-border" />
+      <div className="h-4 w-px" />
       <span className="sm:hidden">XS</span>
       <span className="hidden sm:inline md:hidden">SM</span>
       <span className="hidden md:inline lg:hidden">MD</span>

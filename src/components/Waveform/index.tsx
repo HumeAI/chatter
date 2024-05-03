@@ -1,3 +1,4 @@
+'use client';
 import { getTopNProsody } from '@/utils';
 import type { AssistantTranscriptMessage } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
@@ -24,7 +25,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
   }, [message]);
 
   return (
-    <div className="top-10 opacity-30">
+    <div className="top-10 hidden opacity-30 lg:block">
       <motion.svg
         className={'absolute -bottom-96 left-20'}
         viewBox={'0 0 100 100'}
