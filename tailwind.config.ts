@@ -10,6 +10,9 @@ const config: Config = {
       mono: ['var(--font-mono)', 'monospace'],
     },
     extend: {
+      animation: {
+        'spin-slow': 'spin 2s ease-in-out infinite',
+      },
       fontFamily: {
         neon: ['Tilt Neon', 'sans-serif'],
       },

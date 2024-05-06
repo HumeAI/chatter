@@ -21,6 +21,7 @@ const Template: StoryFn<MessagesProps> = () => {
   const [messages, setMessages] = useState<
     Array<UserTranscriptMessage | AssistantTranscriptMessage | JSONErrorMessage>
   >([]);
+  const [hasPendingTools, setHasPendingTools] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -56,9 +57,19 @@ const Template: StoryFn<MessagesProps> = () => {
       );
     }, 15000);
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHasPendingTools(true);
+    }, 1000);
+    setTimeout(() => {
+      setHasPendingTools(false);
+    }, 4000);
+  }, []);
+
   return (
     <div className="h-svh w-screen bg-black p-8">
-      <Messages messages={messages} />
+      <Messages messages={messages} hasPendingTools={hasPendingTools} />
     </div>
   );
 };
@@ -66,4 +77,5 @@ const Template: StoryFn<MessagesProps> = () => {
 export const Default = Template.bind({});
 Default.args = {
   messages: [],
+  hasPendingTools: false,
 } satisfies MessagesProps;

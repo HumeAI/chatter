@@ -1,5 +1,6 @@
 import { AgentMessage } from '@/components/AgentMessage';
 import { ErrorMessage } from '@/components/ErrorMessage';
+import { SearchInProgress } from '@/components/SearchInProgress';
 import { UserMessage } from '@/components/UserMessage';
 import { cn } from '@/utils';
 import { JSONErrorMessage } from '@humeai/voice';
@@ -15,9 +16,10 @@ export type MessagesProps = {
   messages: Array<
     UserTranscriptMessage | AssistantTranscriptMessage | JSONErrorMessage
   >;
+  hasPendingTools: boolean;
 };
 
-export const Messages: FC<MessagesProps> = ({ messages }) => {
+export const Messages: FC<MessagesProps> = ({ messages, hasPendingTools }) => {
   const autoScroll = useRef(true);
   const messagesWrapper = useRef<ElementRef<'div'>>(null);
 
@@ -92,10 +94,7 @@ export const Messages: FC<MessagesProps> = ({ messages }) => {
           </Fragment>
         );
       })}
-      {/* <div className="ml-auto text-neutral-200 w-fit flex gap-1">
-        <Search />
-        <span>Searching the web for answers ...</span>
-      </div> */}
+      {hasPendingTools ? <SearchInProgress /> : null}
     </div>
   );
 };

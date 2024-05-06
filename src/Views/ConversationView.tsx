@@ -18,7 +18,7 @@ export type ConversationViewProps = {
 export const ConversationView: FC<ConversationViewProps> = ({
   onDisconnect,
 }) => {
-  const { lastVoiceMessage, messages } = useVoice();
+  const { lastVoiceMessage, messages, toolStatusStore } = useVoice();
 
   const filteredMessages = useMemo(() => {
     return messages
@@ -39,12 +39,12 @@ export const ConversationView: FC<ConversationViewProps> = ({
       .slice(1);
   }, [messages]);
 
-  // const pendingTools = useMemo(() => {
-  //   console.log('status', toolStatusStore);
-  //   const pending = Object.keys(toolStatusStore).filter((toolId) => {
-  //     return !toolStatusStore[toolId].resolved;
-  //   });
-  // }, [toolStatusStore]);
+  const pendingTools = useMemo(() => {
+    console.log('status', toolStatusStore);
+    return Object.keys(toolStatusStore).filter((toolId) => {
+      return !toolStatusStore[toolId].resolved;
+    });
+  }, [toolStatusStore]);
 
   return (
     <AnimatePresence>
@@ -67,7 +67,10 @@ export const ConversationView: FC<ConversationViewProps> = ({
 
         <OnAir />
         <Waveform message={lastVoiceMessage} />
-        <Messages messages={filteredMessages} />
+        <Messages
+          messages={filteredMessages}
+          hasPendingTools={pendingTools.length > 0}
+        />
       </motion.div>
     </AnimatePresence>
   );
