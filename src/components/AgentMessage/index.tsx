@@ -1,5 +1,4 @@
 import { cn } from '@/utils';
-import type { AssistantTranscriptMessage } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { FC } from 'react';
 import { Fragment, useMemo, useRef } from 'react';
@@ -9,13 +8,13 @@ function randomBounded(lowerBound: number, upperBound: number) {
 }
 
 export type AgentMessageProps = {
-  message: AssistantTranscriptMessage;
+  messageContent: string;
 };
 
-export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
+export const AgentMessage: FC<AgentMessageProps> = ({ messageContent }) => {
   const words = useMemo(() => {
-    return message.message.content.split(' ');
-  }, [message.message.content]);
+    return messageContent.split(' ');
+  }, [messageContent]);
 
   const finalX = useRef(randomBounded(-50, 0));
 
@@ -23,7 +22,7 @@ export const AgentMessage: FC<AgentMessageProps> = ({ message }) => {
     <AnimatePresence>
       <motion.div
         className={cn(
-          'z-10 ml-auto w-fit max-w-xl rounded-t-3xl rounded-bl-3xl bg-blue-300 px-4 py-2 text-lg opacity-80 md:px-8 md:py-4 md:text-2xl',
+          'z-10 mb-10 ml-auto w-fit max-w-xl rounded-t-3xl rounded-bl-3xl bg-blue-300 px-4 py-2 text-lg opacity-80 md:px-8 md:py-4 md:text-2xl',
         )}
         style={{
           boxShadow:

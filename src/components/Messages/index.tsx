@@ -1,17 +1,23 @@
 import { AgentMessage } from '@/components/AgentMessage';
+import { ErrorMessage } from '@/components/ErrorMessage';
 import { UserMessage } from '@/components/UserMessage';
+import { cn } from '@/utils';
+import { JSONErrorMessage } from '@humeai/voice';
 import {
   type AssistantTranscriptMessage,
   type UserTranscriptMessage,
 } from '@humeai/voice-react';
 import type { ElementRef, FC } from 'react';
 import { Fragment, useEffect, useRef } from 'react';
+import { match } from 'ts-pattern';
 
 export type MessagesProps = {
-  transcriptMessages: Array<UserTranscriptMessage | AssistantTranscriptMessage>;
+  messages: Array<
+    UserTranscriptMessage | AssistantTranscriptMessage | JSONErrorMessage
+  >;
 };
 
-export const Messages: FC<MessagesProps> = ({ transcriptMessages }) => {
+export const Messages: FC<MessagesProps> = ({ messages }) => {
   const autoScroll = useRef(true);
   const messagesWrapper = useRef<ElementRef<'div'>>(null);
 
@@ -23,7 +29,7 @@ export const Messages: FC<MessagesProps> = ({ transcriptMessages }) => {
         behavior: 'smooth',
       });
     }
-  }, [transcriptMessages]);
+  }, [messages]);
 
   useEffect(() => {
     const el = messagesWrapper.current;
@@ -51,20 +57,45 @@ export const Messages: FC<MessagesProps> = ({ transcriptMessages }) => {
 
   return (
     <div
-      className="ml-auto flex h-[90vh] w-screen flex-col gap-10 overflow-y-auto px-20 py-12 md:px-24 lg:w-3/4 xl:w-2/3"
+      className={cn(
+        'ml-auto flex h-[90svh] w-screen flex-col overflow-y-auto px-20 py-12 md:px-24 lg:w-3/4 xl:w-2/3',
+        'scrollbar-thin scrollbar-track-transparent scrollbar-thumb-neutral-700',
+      )}
       ref={messagesWrapper}
     >
-      {transcriptMessages.map((message) => {
+      {messages.map((message) => {
         return (
-          <Fragment key={message.receivedAt.getTime()}>
-            {message.type === 'user_message' ? (
-              <UserMessage message={message} />
-            ) : (
-              <AgentMessage message={message} />
-            )}
+          <Fragment key={message.receivedAt?.getTime()}>
+            {match(message.type)
+              .with('user_message', () => {
+                let messageContent =
+                  typeof message.message !== 'string'
+                    ? message.message.content
+                    : '';
+                return <UserMessage messageContent={messageContent} />;
+              })
+              .with('assistant_message', () => {
+                let messageContent =
+                  typeof message.message !== 'string'
+                    ? message.message.content
+                    : '';
+                return <AgentMessage messageContent={messageContent} />;
+              })
+              .with('error', () => {
+                let messageContent =
+                  typeof message.message === 'string'
+                    ? message.message
+                    : 'An unexpected error occurred.';
+                return <ErrorMessage messageContent={messageContent} />;
+              })
+              .exhaustive()}
           </Fragment>
         );
       })}
+      {/* <div className="ml-auto text-neutral-200 w-fit flex gap-1">
+        <Search />
+        <span>Searching the web for answers ...</span>
+      </div> */}
     </div>
   );
 };

@@ -1,14 +1,15 @@
 import { Messages } from '@/components/Messages';
 import { OnAir } from '@/components/OnAir';
 import { Waveform } from '@/components/Waveform';
+import { JSONErrorMessage } from '@humeai/voice';
 import type {
   AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { type FC, useMemo } from 'react';
 import { DoorOpen } from 'lucide-react';
+import { type FC, useMemo } from 'react';
 
 export type ConversationViewProps = {
   onDisconnect: () => void;
@@ -24,20 +25,31 @@ export const ConversationView: FC<ConversationViewProps> = ({
       .filter(
         (
           message,
-        ): message is UserTranscriptMessage | AssistantTranscriptMessage => {
+        ): message is
+          | UserTranscriptMessage
+          | AssistantTranscriptMessage
+          | JSONErrorMessage => {
           return (
             message.type === 'assistant_message' ||
-            message.type === 'user_message'
+            message.type === 'user_message' ||
+            message.type === 'error'
           );
         },
       )
       .slice(1);
   }, [messages]);
 
+  // const pendingTools = useMemo(() => {
+  //   console.log('status', toolStatusStore);
+  //   const pending = Object.keys(toolStatusStore).filter((toolId) => {
+  //     return !toolStatusStore[toolId].resolved;
+  //   });
+  // }, [toolStatusStore]);
+
   return (
     <AnimatePresence>
       <motion.div
-        className="flex h-screen w-screen flex-col overflow-hidden bg-black"
+        className="flex h-svh w-screen flex-col overflow-hidden bg-black"
         initial={{ x: 1000 }}
         animate={{ x: 0 }}
         exit={{ x: 1000 }}
@@ -55,7 +67,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
 
         <OnAir />
         <Waveform message={lastVoiceMessage} />
-        <Messages transcriptMessages={filteredMessages} />
+        <Messages messages={filteredMessages} />
       </motion.div>
     </AnimatePresence>
   );

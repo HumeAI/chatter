@@ -10,7 +10,7 @@ import { match } from 'ts-pattern';
 const today = format(new Date(), 'LLLL d, yyyy');
 
 // Initial message is necessary because the assistant can't speak first
-const initialMessage = `Start your response with: Welcome to Chatter, a daily news podcast. The date is ${today}.Do not acknowledge that you received this request. `;
+const initialMessage = `Start your response with: Welcome to Chatter, a daily news podcast. The date is ${today}. Do not acknowledge that you received this request. `;
 
 export type ViewsProps = Record<never, never>;
 
