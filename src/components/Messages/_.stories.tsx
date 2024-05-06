@@ -8,6 +8,7 @@ import type {
 import { useEffect, useState } from 'react';
 import type { MessagesProps } from '.';
 import { Messages } from '.';
+import { JSONErrorMessage } from '@humeai/voice';
 
 export default {
   component: Messages,
@@ -18,7 +19,7 @@ export default {
 
 const Template: StoryFn<MessagesProps> = () => {
   const [messages, setMessages] = useState<
-    Array<UserTranscriptMessage | AssistantTranscriptMessage>
+    Array<UserTranscriptMessage | AssistantTranscriptMessage | JSONErrorMessage>
   >([]);
 
   useEffect(() => {
@@ -40,15 +41,29 @@ const Template: StoryFn<MessagesProps> = () => {
     setTimeout(() => {
       setMessages((p) => p.concat(createMockAgentMessage()));
     }, 12000);
+    setTimeout(() => {
+      setMessages((p) =>
+        p.concat([
+          {
+            type: 'error' as const,
+            code: 'I0100',
+            slug: 'uncaught',
+            message:
+              'Unexpected service error occurred. Please visit https://dev.hume.ai/support for assistance.',
+            receivedAt: new Date(),
+          },
+        ]),
+      );
+    }, 15000);
   }, []);
   return (
-    <div className="h-screen w-screen bg-black p-8">
-      <Messages transcriptMessages={messages} />
+    <div className="h-svh w-screen bg-black p-8">
+      <Messages messages={messages} />
     </div>
   );
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  transcriptMessages: [],
+  messages: [],
 } satisfies MessagesProps;

@@ -12,7 +12,7 @@ export default {
 
 const Template: StoryFn<OnAirProps> = () => {
   return (
-    <div className="flex min-h-screen w-screen items-center justify-center bg-black ">
+    <div className="flex min-h-svh w-screen items-center justify-center bg-black ">
       <OnAir />
     </div>
   );
