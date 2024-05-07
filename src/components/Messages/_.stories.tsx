@@ -69,7 +69,14 @@ const Template: StoryFn<MessagesProps> = () => {
 
   return (
     <div className="h-svh w-screen bg-black p-8">
-      <Messages messages={messages} hasPendingTools={hasPendingTools} />
+      <Messages
+        messages={messages}
+        hasPendingTools={hasPendingTools}
+        status={{
+          value: 'connected',
+        }}
+        onReconnect={() => {}}
+      />
     </div>
   );
 };
@@ -78,4 +85,6 @@ export const Default = Template.bind({});
 Default.args = {
   messages: [],
   hasPendingTools: false,
+  status: { value: 'connected' },
+  onReconnect: () => {},
 } satisfies MessagesProps;

@@ -7,6 +7,7 @@ import { JSONErrorMessage } from '@humeai/voice';
 import {
   type AssistantTranscriptMessage,
   type UserTranscriptMessage,
+  useVoice,
 } from '@humeai/voice-react';
 import type { ElementRef, FC } from 'react';
 import { Fragment, useEffect, useRef } from 'react';
@@ -17,9 +18,16 @@ export type MessagesProps = {
     UserTranscriptMessage | AssistantTranscriptMessage | JSONErrorMessage
   >;
   hasPendingTools: boolean;
+  status: ReturnType<typeof useVoice>['status'];
+  onReconnect: () => void;
 };
 
-export const Messages: FC<MessagesProps> = ({ messages, hasPendingTools }) => {
+export const Messages: FC<MessagesProps> = ({
+  messages,
+  hasPendingTools,
+  status,
+  onReconnect,
+}) => {
   const autoScroll = useRef(true);
   const messagesWrapper = useRef<ElementRef<'div'>>(null);
 
@@ -95,6 +103,16 @@ export const Messages: FC<MessagesProps> = ({ messages, hasPendingTools }) => {
         );
       })}
       {hasPendingTools ? <SearchInProgress /> : null}
+      {status.value === 'error' && (
+        <div>
+          <button
+            className="ml-auto flex gap-1 text-white opacity-50"
+            onClick={onReconnect}
+          >
+            Reconnect
+          </button>
+        </div>
+      )}
     </div>
   );
 };

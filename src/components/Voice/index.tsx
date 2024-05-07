@@ -17,6 +17,7 @@ export const Voice = () => {
       }}
       hostname={process.env.NEXT_PUBLIC_VOICE_HOSTNAME}
       configId={process.env.NEXT_PUBLIC_VOICE_CONFIG_ID}
+      clearMessagesOnDisconnect={false}
     >
       <Views />
     </VoiceProvider>
