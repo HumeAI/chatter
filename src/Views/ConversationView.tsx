@@ -13,12 +13,14 @@ import { type FC, useMemo } from 'react';
 
 export type ConversationViewProps = {
   onDisconnect: () => void;
+  onReconnect: () => void;
 };
 
 export const ConversationView: FC<ConversationViewProps> = ({
   onDisconnect,
+  onReconnect,
 }) => {
-  const { lastVoiceMessage, messages, toolStatusStore } = useVoice();
+  const { lastVoiceMessage, messages, toolStatusStore, status } = useVoice();
 
   const filteredMessages = useMemo(() => {
     return messages
@@ -36,11 +38,12 @@ export const ConversationView: FC<ConversationViewProps> = ({
           );
         },
       )
-      .slice(1);
+      .filter((message) => {
+        return !(message.type === 'user_message' && !message.models.prosody);
+      });
   }, [messages]);
 
   const pendingTools = useMemo(() => {
-    console.log('status', toolStatusStore);
     return Object.keys(toolStatusStore).filter((toolId) => {
       return !toolStatusStore[toolId].resolved;
     });
@@ -70,6 +73,8 @@ export const ConversationView: FC<ConversationViewProps> = ({
         <Messages
           messages={filteredMessages}
           hasPendingTools={pendingTools.length > 0}
+          status={status}
+          onReconnect={onReconnect}
         />
       </motion.div>
     </AnimatePresence>
