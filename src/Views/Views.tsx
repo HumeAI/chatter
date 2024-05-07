@@ -7,10 +7,11 @@ import type { FC } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { match } from 'ts-pattern';
 
-const today = format(new Date(), 'LLLL Lo, yyyy');
-
-// Initial message is necessary because the assistant can't speak first
-const initialMessage = `Start your response with: Welcome to Chatter, a daily news podcast. The date is ${today}. Do not acknowledge that you received this request. `;
+function getInitialMessage() {
+  const today = format(new Date(), 'LLLL do, yyyy');
+  console.log('today', today, new Date().getDate());
+  return `Start your response with: Welcome to Chatter, a daily news podcast. The date is ${today}. Do not acknowledge that you received this request. `;
+}
 
 export type ViewsProps = Record<never, never>;
 
@@ -25,7 +26,8 @@ export const Views: FC<ViewsProps> = () => {
   useEffect(() => {
     if (isFirstMessageSent.current === false && status.value === 'connected') {
       isFirstMessageSent.current = true;
-      sendUserInput(initialMessage);
+      // Initial message is necessary because the assistant can't speak first
+      sendUserInput(getInitialMessage());
     }
     return () => {
       isFirstMessageSent.current = false;
