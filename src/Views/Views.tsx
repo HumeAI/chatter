@@ -9,7 +9,7 @@ import { match } from 'ts-pattern';
 
 function getInitialMessage() {
   const today = format(new Date(), 'LLLL do, yyyy');
-  return `Start your response with: "Welcome to Chatter, a daily news podcast. The date is ${today}." Do not acknowledge that you received this request.`;
+  return `Start your response with: "Welcome to Chatter, a daily news podcast. The date is ${today}." Then, use the web_search tool to answer this question: what are the top 3 news stories of today? Do not acknowledge that you received this request.`;
 }
 
 export type ViewsProps = Record<never, never>;
