@@ -1,4 +1,5 @@
 import { Messages } from '@/components/Messages';
+import { NavRail } from '@/components/NavRail';
 import { OnAir } from '@/components/OnAir';
 import { WaitingOnHost } from '@/components/WaitingOnHost';
 import { Waveform } from '@/components/Waveform';
@@ -54,37 +55,39 @@ export const ConversationView: FC<ConversationViewProps> = ({
   }, [toolStatusStore]);
 
   return (
-    <AnimatePresence>
-      <motion.div
-        className="flex h-svh w-screen flex-col overflow-hidden bg-black"
-        initial={{ x: 1000 }}
-        animate={{ x: 0 }}
-        exit={{ x: 1000 }}
-        transition={{ duration: 0.1 }}
-      >
-        <div className="flex w-full justify-end">
-          <button
-            className="flex gap-1 p-4 text-white opacity-50"
-            onClick={onDisconnect}
-          >
-            <DoorOpen strokeWidth={1} />
-            <span>Disconnect</span>
-          </button>
-        </div>
-
-        <OnAir />
-        <Waveform message={lastVoiceMessage} />
-        {lastVoiceMessage ? (
-          <Messages
-            messages={filteredMessages}
-            hasPendingTools={pendingTools.length > 0}
-            status={status}
-            onReconnect={onReconnect}
-          />
-        ) : (
-          <WaitingOnHost />
-        )}
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <NavRail variant="dark" />
+      <AnimatePresence>
+        <motion.div
+          className="mt-16 flex h-[calc(100svh-64px)] w-screen flex-col overflow-hidden bg-black"
+          initial={{ x: 1000 }}
+          animate={{ x: 0 }}
+          exit={{ x: 1000 }}
+          transition={{ duration: 0.1 }}
+        >
+          <OnAir />
+          <Waveform message={lastVoiceMessage} />
+          {lastVoiceMessage ? (
+            <Messages
+              messages={filteredMessages}
+              hasPendingTools={pendingTools.length > 0}
+              status={status}
+              onReconnect={onReconnect}
+            />
+          ) : (
+            <WaitingOnHost />
+          )}
+          <div className="flex w-full justify-end md:p-4">
+            <button
+              className="flex gap-1 p-4 text-white opacity-50"
+              onClick={onDisconnect}
+            >
+              <DoorOpen strokeWidth={1} />
+              <span>Disconnect</span>
+            </button>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
 };

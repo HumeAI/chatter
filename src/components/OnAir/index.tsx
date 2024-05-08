@@ -7,7 +7,7 @@ export const OnAir = () => {
     <motion.div
       className="absolute"
       initial={{ top: -500, left: 56, skewX: -10 }}
-      animate={{ top: 56, skewX: 0 }}
+      animate={{ top: 64, skewX: 0 }}
       transition={{ type: 'spring', bounce: 0.5, delay: 0.2 }}
     >
       <motion.div
