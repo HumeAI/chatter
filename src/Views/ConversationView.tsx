@@ -79,7 +79,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
           )}
           <div className="flex w-full justify-end md:p-4">
             <button
-              className="flex gap-1 p-4 text-white opacity-50"
+              className="flex gap-1 p-4 text-white"
               onClick={onDisconnect}
             >
               <DoorOpen strokeWidth={1} />
