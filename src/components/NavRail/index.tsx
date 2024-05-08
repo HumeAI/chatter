@@ -15,9 +15,9 @@ export const NavRail: FC<NavRailProps> = ({ variant = 'light' }) => {
   return (
     <div
       className={cn(
-        'fixed left-0 top-0 flex h-16 w-full items-center',
+        'flex h-16 w-full items-center',
         'pr-0 md:pr-[var(--pad)]',
-        'gap-4',
+        'z-10 gap-4',
         isDark && 'bg-black',
       )}
     >

@@ -59,7 +59,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
       <NavRail variant="dark" />
       <AnimatePresence>
         <motion.div
-          className="mt-16 flex h-[calc(100svh-64px)] w-screen flex-col overflow-hidden bg-black"
+          className="flex max-h-[calc(100svh-64px)] w-screen grow flex-col overflow-hidden bg-black"
           initial={{ x: 1000 }}
           animate={{ x: 0 }}
           exit={{ x: 1000 }}
