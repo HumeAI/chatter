@@ -16,13 +16,21 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
     <div className="flex w-screen flex-col items-center gap-4 md:gap-6">
       <NavRail />
       <motion.h1
-        className="mx-auto mt-24 text-7xl md:text-[7em] lg:mt-56"
+        className="mx-auto mt-16 text-7xl md:text-[7rem] lg:mt-40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3, delay: 0.3 }}
       >
         Chatter
       </motion.h1>
+      <motion.p
+        className="text-2xl md:text-4xl -mt-4 mb-4 text-center px-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.3, delay: 0.6 }}
+      >
+        <Balancer>An interactive podcast experience</Balancer>
+      </motion.p>
       <motion.div
         className="z-10 flex flex-col items-center justify-center gap-4"
         initial={{ opacity: 0 }}
@@ -67,7 +75,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
       </motion.div>
 
       <motion.svg
-        className="fixed bottom-[-200px] left-0 h-svh w-screen md:bottom-[-120px] md:left-[-50px] lg:bottom-0 lg:left-[-160px]"
+        className="fixed bottom-[-200px] left-0 h-svh w-screen md:bottom-[-120px] md:left-[-50px] lg:bottom-0 lg:left-[-180px]"
         id="Layer_1"
         data-name="Layer 1"
         viewBox="0 0 3000 2200"
