@@ -13,20 +13,24 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   onClick,
   className,
 }) => {
+  const hoverState = {
+    x: '-0.4rem',
+    y: '-0.4rem',
+    boxShadow:
+      '0.4rem 0.4rem rgba(240, 46, 170, 1), 0.8rem 0.8rem rgba(240, 46, 170, 0.3)',
+  };
+
   return (
     <motion.button
       className={cn(
-        'rounded-lg bg-black px-4 py-2 text-xl text-white disabled:cursor-not-allowed disabled:opacity-50 md:text-3xl',
+        'rounded-lg bg-white px-4 py-2 text-xl text-black disabled:cursor-not-allowed disabled:opacity-50 md:text-3xl',
+        'focus:outline-none',
         className,
       )}
       onClick={onClick}
       initial={{ x: 0, y: 0 }}
-      whileHover={{
-        x: '-0.4rem',
-        y: '-0.4rem',
-        boxShadow:
-          '0.4rem 0.4rem rgba(240, 46, 170, 1), 0.8rem 0.8rem rgba(240, 46, 170, 0.3)',
-      }}
+      whileHover={hoverState}
+      whileFocus={hoverState}
       transition={{ duration: 0.1 }}
       disabled={disabled}
     >
