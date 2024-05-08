@@ -15,7 +15,7 @@ export const SearchInProgress: FC<SearchInProgressProps> = () => {
         transition={{ duration: 0.1 }}
       >
         <Hourglass className="animate-spin-slow" size={20} />
-        <span>Searching the web ...</span>
+        <span className="font-mono">Searching the web ...</span>
       </motion.div>
     </AnimatePresence>
   );

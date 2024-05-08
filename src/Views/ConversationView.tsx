@@ -1,5 +1,6 @@
 import { Messages } from '@/components/Messages';
 import { OnAir } from '@/components/OnAir';
+import { WaitingOnHost } from '@/components/WaitingOnHost';
 import { Waveform } from '@/components/Waveform';
 import { JSONErrorMessage } from '@humeai/voice';
 import type {
@@ -39,7 +40,9 @@ export const ConversationView: FC<ConversationViewProps> = ({
         },
       )
       .filter((message) => {
-        return !(message.type === 'user_message' && !message.models.prosody);
+        const isInitialMessage =
+          message.type === 'user_message' && !message.models.prosody;
+        return !isInitialMessage;
       });
   }, [messages]);
 
@@ -70,12 +73,16 @@ export const ConversationView: FC<ConversationViewProps> = ({
 
         <OnAir />
         <Waveform message={lastVoiceMessage} />
-        <Messages
-          messages={filteredMessages}
-          hasPendingTools={pendingTools.length > 0}
-          status={status}
-          onReconnect={onReconnect}
-        />
+        {lastVoiceMessage ? (
+          <Messages
+            messages={filteredMessages}
+            hasPendingTools={pendingTools.length > 0}
+            status={status}
+            onReconnect={onReconnect}
+          />
+        ) : (
+          <WaitingOnHost />
+        )}
       </motion.div>
     </AnimatePresence>
   );
