@@ -1,4 +1,4 @@
-# Chatter, a daily news podcast
+# Chatter, an interactive news podcast
 
 This example Next.js app showcases the web search capabilities of Hume's Empathic Voice Interface.
 
