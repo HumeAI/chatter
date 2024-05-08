@@ -13,10 +13,10 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
-    <div className="flex h-svh w-screen flex-col items-center gap-4 bg-tan-300 md:gap-6">
+    <div className="flex w-screen flex-col items-center gap-4 md:gap-6">
       <NavRail />
       <motion.h1
-        className="mx-auto mt-40 text-7xl md:text-[7em] lg:mt-72"
+        className="mx-auto mt-24 text-7xl md:text-[7em] lg:mt-56"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3, delay: 0.3 }}

@@ -26,9 +26,7 @@ export default function RootLayout({
           fraktionMono.variable,
         )}
       >
-        <main className="flex min-h-svh w-screen flex-col gap-8">
-          {children}
-        </main>
+        <main className="flex min-h-svh w-screen flex-col">{children}</main>
       </body>
     </html>
   );
