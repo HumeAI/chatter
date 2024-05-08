@@ -1,7 +1,9 @@
 import { Button } from '@/components/Button';
+import { NavRail } from '@/components/NavRail';
 import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
 import type { Dispatch, FC, SetStateAction } from 'react';
+import Balancer from 'react-wrap-balancer';
 
 type HomeViewProps = {
   setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;
@@ -11,7 +13,8 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   const { connect, status } = useVoice();
 
   return (
-    <div className="flex h-svh w-screen flex-col items-center gap-4 bg-tan-300 md:gap-8">
+    <div className="flex h-svh w-screen flex-col items-center gap-4 bg-tan-300 md:gap-6">
+      <NavRail />
       <motion.h1
         className="mx-auto mt-40 text-7xl md:text-[7em] lg:mt-72"
         initial={{ opacity: 0 }}
@@ -21,12 +24,13 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         Chatter
       </motion.h1>
       <motion.div
-        className="z-10"
+        className="z-10 flex flex-col items-center justify-center gap-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.9, delay: 1 }}
       >
         <Button
+          className="shrink"
           onClick={() => {
             void connect()
               .then(() => {
@@ -40,6 +44,26 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         >
           {status.value === 'connecting' ? 'Connecting...' : 'Start'}
         </Button>
+        <Balancer className="max-w-sm text-center text-sm">
+          By starting a conversation, I accept Hume&apos;s{' '}
+          <a
+            className="cursor-pointer underline"
+            href="https://beta.hume.ai/policies/terms-of-use"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Terms of Use
+          </a>{' '}
+          and acknowledge the{' '}
+          <a
+            className="cursor-pointer underline"
+            href="https://www.hume.ai/privacy-policy"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Privacy Policy
+          </a>
+        </Balancer>
       </motion.div>
 
       <motion.svg
