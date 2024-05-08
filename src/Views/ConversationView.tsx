@@ -41,7 +41,8 @@ export const ConversationView: FC<ConversationViewProps> = ({
       )
       .filter((message) => {
         const isInitialMessage =
-          message.type === 'user_message' && !message.models.prosody;
+          message.type === 'user_message' &&
+          (message.from_text === true || !message.models.prosody);
         return !isInitialMessage;
       });
   }, [messages]);
