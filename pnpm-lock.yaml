@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@humeai/voice':
-    specifier: 0.1.5-beta.1
-    version: 0.1.5-beta.1
+    specifier: 0.1.5-beta.2
+    version: 0.1.5-beta.2
   '@humeai/voice-react':
-    specifier: 0.1.5-beta.1
-    version: 0.1.5-beta.1
+    specifier: 0.1.5-beta.2
+    version: 0.1.5-beta.2
   '@ngneat/falso':
     specifier: ^7.2.0
     version: 7.2.0
@@ -1916,10 +1916,10 @@ packages:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     dev: true
 
-  /@humeai/voice-react@0.1.5-beta.1:
-    resolution: {integrity: sha512-/BzAmNQ1b/liY9C5twLVzca38OnQXKTxOWmyKI0QYNt9s8gPIeqQptrA/x7WYfyFu44raLDKmIPcrtAPCm6TxQ==}
+  /@humeai/voice-react@0.1.5-beta.2:
+    resolution: {integrity: sha512-90PriIavdkkjsBflIGpZSzPGEO6P7zztMlD/7Jieo2Gb/ugz4KXi9PME5k+uMqzJgb/MbWR1zUPeIKZ105WNMw==}
     dependencies:
-      '@humeai/voice': 0.1.5-beta.1
+      '@humeai/voice': 0.1.5-beta.2
       date-fns: 3.6.0
       meyda: 5.6.2
       react: 18.2.0
@@ -1929,8 +1929,8 @@ packages:
       - supports-color
     dev: false
 
-  /@humeai/voice@0.1.5-beta.1:
-    resolution: {integrity: sha512-g+pJStmr1lNSWjWikouhnYFY7CnGR5tUs9bTCo0BjQGKZfed4V6l+9zipmPdsW1EslNumzpSFMDQYb64371wQw==}
+  /@humeai/voice@0.1.5-beta.2:
+    resolution: {integrity: sha512-4uN01I6VmpfRUE/5QqVM32odhh+VFcj7ssQBNo6cfkD0EaDcqT4sgEaEtPAmwYbnQ/nvTMbZJeKhlX43c+2rPw==}
     dependencies:
       reconnecting-websocket: 4.4.0
       snakecase-keys: 8.0.0
