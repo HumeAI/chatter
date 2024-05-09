@@ -1,3 +1,4 @@
+'use client';
 import { Messages } from '@/components/Messages';
 import { NavRail } from '@/components/NavRail';
 import { OnAir } from '@/components/OnAir';
@@ -67,7 +68,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
         >
           <OnAir />
           <Waveform message={lastVoiceMessage} />
-          {lastVoiceMessage ? (
+          {filteredMessages.length > 0 ? (
             <Messages
               messages={filteredMessages}
               hasPendingTools={pendingTools.length > 0}
