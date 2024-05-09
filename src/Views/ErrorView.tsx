@@ -1,6 +1,13 @@
-import { Button } from '@/components/Button';
 import { NavRail } from '@/components/NavRail';
+import dynamic from 'next/dynamic';
 import type { Dispatch, FC, SetStateAction } from 'react';
+
+const Button = dynamic(
+  () => import('@/components/Button').then((m) => m.Button),
+  {
+    ssr: false,
+  },
+);
 
 type ErrorViewProps = {
   setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;

@@ -62,17 +62,19 @@ export type WaitingOnHostProps = Record<never, never>;
 
 export const WaitingOnHost: FC<WaitingOnHostProps> = () => {
   return (
-    <AnimatePresence>
-      <motion.div
-        className="flex size-full h-svh flex-col items-center justify-center gap-8 px-8 text-center font-mono text-xl text-white"
-        exit={{ opacity: 0 }}
-      >
-        <div className="flex">
-          <ThreeDotsWave />
-        </div>
+    <div className="flex h-svh w-full items-center justify-center">
+      <AnimatePresence>
+        <motion.div
+          className="z-10 flex w-fit flex-col items-center justify-center gap-8 rounded-md border border-white bg-black p-8 text-center font-mono text-xl text-white"
+          exit={{ opacity: 0 }}
+        >
+          <div className="flex">
+            <ThreeDotsWave />
+          </div>
 
-        <Balancer>Your podcast co-host will be here soon</Balancer>
-      </motion.div>
-    </AnimatePresence>
+          <Balancer>Your podcast co-host will be here soon</Balancer>
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 };

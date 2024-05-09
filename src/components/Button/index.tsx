@@ -1,4 +1,6 @@
+'use client';
 import { cn } from '@/utils';
+import { useShortScreen } from '@/utils/useShortScreen';
 import { motion } from 'framer-motion';
 import { FC, PropsWithChildren } from 'react';
 
@@ -13,6 +15,8 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   onClick,
   className,
 }) => {
+  const { isShortScreen } = useShortScreen();
+
   const hoverState = {
     x: '-0.4rem',
     y: '-0.4rem',
@@ -23,8 +27,9 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   return (
     <motion.button
       className={cn(
-        'rounded-lg bg-white px-4 py-2 text-xl text-black disabled:cursor-not-allowed disabled:opacity-50 md:text-3xl',
+        'rounded-lg bg-white px-4 py-2 text-xl text-black disabled:cursor-not-allowed disabled:opacity-50 ',
         'focus:outline-none',
+        isShortScreen ? 'text-xl' : 'md:text-3xl',
         className,
       )}
       onClick={onClick}

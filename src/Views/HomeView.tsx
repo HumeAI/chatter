@@ -1,9 +1,23 @@
-import { Button } from '@/components/Button';
 import { NavRail } from '@/components/NavRail';
 import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import type { Dispatch, FC, SetStateAction } from 'react';
 import Balancer from 'react-wrap-balancer';
+
+const AppHeading = dynamic(
+  () => import('@/components/AppHeading').then((m) => m.AppHeading),
+  {
+    ssr: false,
+  },
+);
+
+const Button = dynamic(
+  () => import('@/components/Button').then((m) => m.Button),
+  {
+    ssr: false,
+  },
+);
 
 type HomeViewProps = {
   setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;
@@ -15,22 +29,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
   return (
     <div className="flex w-screen flex-col items-center gap-4 md:gap-6">
       <NavRail variant="dark" />
-      <motion.h1
-        className="mx-auto mt-16 text-7xl [text-shadow:_6px_6px_6px_theme(colors.pink.400)] md:text-[7rem] lg:mt-40"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.3, delay: 0.3 }}
-      >
-        Chatter
-      </motion.h1>
-      <motion.p
-        className="-mt-4 mb-4 px-4 text-center text-2xl md:text-4xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.3, delay: 0.6 }}
-      >
-        <Balancer>An interactive podcast experience</Balancer>
-      </motion.p>
+      <AppHeading />
       <motion.div
         className="z-10 flex flex-col items-center justify-center gap-4"
         initial={{ opacity: 0 }}
