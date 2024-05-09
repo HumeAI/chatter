@@ -25,7 +25,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
   }, [message]);
 
   return (
-    <div className="top-10 hidden opacity-30 lg:block">
+    <div className="top-10 hidden opacity-30 lg:block pointer-events-none">
       <motion.svg
         className={'absolute -bottom-96 left-20'}
         viewBox={'0 0 100 100'}
