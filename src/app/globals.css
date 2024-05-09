@@ -57,7 +57,7 @@
     --accent-green-200: 212 239 213; /* #a16d6b */
     --accent-green-100: 244 251 245; /* #a16d6b */
 
-    --darkBackground: #222222;
+    --darkBackground: 0 0 0;
     --lightBackground: var(--hume-tan-200);
     --grayBackground: var(--hume-black-200);
   }
@@ -67,7 +67,7 @@
   }
 
   body {
-    @apply bg-background-light text-gray-700 font-sans;
+    @apply bg-background-dark text-neutral-300 font-sans;
   }
 }
 

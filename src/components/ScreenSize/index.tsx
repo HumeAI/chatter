@@ -23,7 +23,7 @@ export const ScreenSize = () => {
   const { width, height } = dimensions;
 
   return (
-    <div className="flex items-center space-x-2 rounded-full px-2.5 py-1 text-xs font-medium">
+    <div className="flex items-center space-x-2 rounded-full px-2.5 py-1 text-xs font-medium text-neutral-900">
       <span className={'tabular-nums'}>
         {width.toLocaleString()} {'×'} {height.toLocaleString()}
       </span>
