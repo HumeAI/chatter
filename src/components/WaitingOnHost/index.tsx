@@ -39,21 +39,16 @@ export default function ThreeDotsWave() {
       initial="start"
       animate="end"
     >
-      <motion.span
-        className="block size-2 rounded-full bg-white"
-        variants={loadingCircleVariants}
-        transition={loadingCircleTransition}
-      />
-      <motion.span
-        className="block size-2 rounded-full bg-white"
-        variants={loadingCircleVariants}
-        transition={loadingCircleTransition}
-      />
-      <motion.span
-        className="block size-2 rounded-full bg-white"
-        variants={loadingCircleVariants}
-        transition={loadingCircleTransition}
-      />
+      {Array.from({ length: 3 }).map((_el, i) => {
+        return (
+          <motion.span
+            key={`dot-${i}`}
+            className="block size-2 rounded-full bg-white shadow-[0_0_2px_theme(colors.pink.100),inset_0_0_2px_theme(colors.pink.400),0_0_5px_theme(colors.pink.100),0_0_15px_theme(colors.pink.400),0_0_20px_theme(colors.pink.400),0_0_25px_theme(colors.pink.400)]"
+            variants={loadingCircleVariants}
+            transition={loadingCircleTransition}
+          />
+        );
+      })}
     </motion.div>
   );
 }
@@ -65,7 +60,7 @@ export const WaitingOnHost: FC<WaitingOnHostProps> = () => {
     <div className="flex h-svh w-full items-center justify-center">
       <AnimatePresence>
         <motion.div
-          className="z-10 flex w-fit flex-col items-center justify-center gap-8 rounded-md border border-white bg-black p-8 text-center font-mono text-xl text-white"
+          className="z-10 flex w-fit flex-col items-center justify-center gap-8 rounded-lg  bg-black p-8 text-center text-xl text-neutral-100"
           exit={{ opacity: 0 }}
         >
           <div className="flex">
