@@ -68,6 +68,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
         >
           <OnAir />
           <Waveform message={lastVoiceMessage} />
+
           {filteredMessages.length > 0 ? (
             <Messages
               messages={filteredMessages}
@@ -78,9 +79,13 @@ export const ConversationView: FC<ConversationViewProps> = ({
           ) : (
             <WaitingOnHost />
           )}
+          <div className="fixed bottom-4 left-4 text-sm text-neutral-500 md:bottom-8 md:left-8">
+            Chatter may make mistakes.
+          </div>
+
           <div className="flex w-full justify-end md:p-4">
             <button
-              className="flex gap-1 p-4 text-white"
+              className="flex gap-1 p-4 text-neutral-100"
               onClick={onDisconnect}
             >
               <DoorOpen strokeWidth={1} />
