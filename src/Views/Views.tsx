@@ -1,6 +1,7 @@
 import { ConversationView } from '@/Views/ConversationView';
 import { ErrorView } from '@/Views/ErrorView';
 import { HomeView } from '@/Views/HomeView';
+import { MicPermissionView } from '@/Views/MicPermissionView';
 import { useVoice } from '@humeai/voice-react';
 import { format } from 'date-fns';
 import type { FC } from 'react';
@@ -19,7 +20,7 @@ export const Views: FC<ViewsProps> = () => {
     useVoice();
   const isFirstMessageSent = useRef(false);
   const [activeView, setActiveView] = useState<
-    'home' | 'error' | 'conversation'
+    'home' | 'error' | 'conversation' | 'mic_error'
   >('home');
 
   useEffect(() => {
@@ -56,6 +57,9 @@ export const Views: FC<ViewsProps> = () => {
         })
         .with('error', () => {
           return <ErrorView setActiveView={setActiveView} />;
+        })
+        .with('mic_error', () => {
+          return <MicPermissionView setActiveView={setActiveView} />;
         })
         .exhaustive()}
     </>

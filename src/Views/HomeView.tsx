@@ -20,7 +20,9 @@ const Button = dynamic(
 );
 
 type HomeViewProps = {
-  setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;
+  setActiveView: Dispatch<
+    SetStateAction<'home' | 'error' | 'conversation' | 'mic_error'>
+  >;
 };
 
 export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
@@ -43,8 +45,12 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
               .then(() => {
                 setActiveView('conversation');
               })
-              .catch(() => {
-                setActiveView('error');
+              .catch((e) => {
+                if (e.type === 'mic_error') {
+                  setActiveView('mic_error');
+                } else {
+                  setActiveView('error');
+                }
               });
           }}
           disabled={status.value === 'connecting'}
