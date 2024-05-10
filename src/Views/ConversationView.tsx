@@ -7,6 +7,8 @@ import { Waveform } from '@/components/Waveform';
 import { JSONErrorMessage } from '@humeai/voice';
 import type {
   AssistantTranscriptMessage,
+  ToolCall,
+  ToolResponse,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
@@ -23,7 +25,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
   onDisconnect,
   onReconnect,
 }) => {
-  const { lastVoiceMessage, messages, toolStatusStore, status } = useVoice();
+  const { lastVoiceMessage, messages, status } = useVoice();
 
   const filteredMessages = useMemo(() => {
     return messages
@@ -33,11 +35,15 @@ export const ConversationView: FC<ConversationViewProps> = ({
         ): message is
           | UserTranscriptMessage
           | AssistantTranscriptMessage
-          | JSONErrorMessage => {
+          | JSONErrorMessage
+          | ToolCall
+          | ToolResponse => {
           return (
             message.type === 'assistant_message' ||
             message.type === 'user_message' ||
-            message.type === 'error'
+            message.type === 'error' ||
+            message.type === 'tool_call' ||
+            message.type === 'tool_response'
           );
         },
       )
@@ -48,12 +54,6 @@ export const ConversationView: FC<ConversationViewProps> = ({
         return !isInitialMessage;
       });
   }, [messages]);
-
-  const pendingTools = useMemo(() => {
-    return Object.keys(toolStatusStore).filter((toolId) => {
-      return !toolStatusStore[toolId].resolved;
-    });
-  }, [toolStatusStore]);
 
   return (
     <>
@@ -72,7 +72,6 @@ export const ConversationView: FC<ConversationViewProps> = ({
           {filteredMessages.length > 0 ? (
             <Messages
               messages={filteredMessages}
-              hasPendingTools={pendingTools.length > 0}
               status={status}
               onReconnect={onReconnect}
             />
