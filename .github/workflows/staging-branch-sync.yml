@@ -1,0 +1,24 @@
+name: Sync main to staging
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    name: Syncing branches
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Sync to staging
+        env:
+          GITHUB_TOKEN: ${{ secrets.HUME_BOT_TOKEN }}
+        run: |
+          git checkout staging
+          git reset --hard main
+          git push --force
