@@ -19,4 +19,16 @@ const Template: StoryFn<SearchInProgressProps> = (args) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {} satisfies SearchInProgressProps;
+Default.args = {
+  message: {
+    tool_call_id: '123',
+    type: 'tool_call',
+    parameters: JSON.stringify({
+      query: 'test',
+    }),
+    receivedAt: new Date(),
+    name: 'web_search',
+    tool_type: 'builtin',
+    response_required: true,
+  },
+} satisfies SearchInProgressProps;

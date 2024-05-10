@@ -60,7 +60,7 @@ export const WaitingOnHost: FC<WaitingOnHostProps> = () => {
     <div className="flex h-svh w-full items-center justify-center">
       <AnimatePresence>
         <motion.div
-          className="z-10 flex w-fit flex-col items-center justify-center gap-8 rounded-lg  bg-black p-8 text-center text-xl text-neutral-100"
+          className="z-10 flex w-fit flex-col items-center justify-center gap-8 rounded-lg bg-black p-8 text-center text-xl text-neutral-100"
           exit={{ opacity: 0 }}
         >
           <div className="flex">

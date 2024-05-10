@@ -1,30 +1,32 @@
 import { AgentMessage } from '@/components/AgentMessage';
 import { ErrorMessage } from '@/components/ErrorMessage';
 import { SearchInProgress } from '@/components/SearchInProgress';
+import { SearchSucceeded } from '@/components/SearchSucceeded';
 import { UserMessage } from '@/components/UserMessage';
 import { cn } from '@/utils';
-import { JSONErrorMessage } from '@humeai/voice';
+import { JSONErrorMessage, ToolCall, ToolResponse } from '@humeai/voice';
 import {
   type AssistantTranscriptMessage,
   type UserTranscriptMessage,
   useVoice,
 } from '@humeai/voice-react';
 import type { ElementRef, FC } from 'react';
-import { Fragment, useEffect, useRef } from 'react';
-import { match } from 'ts-pattern';
+import { useEffect, useRef } from 'react';
 
 export type MessagesProps = {
   messages: Array<
-    UserTranscriptMessage | AssistantTranscriptMessage | JSONErrorMessage
+    | UserTranscriptMessage
+    | AssistantTranscriptMessage
+    | JSONErrorMessage
+    | ToolCall
+    | ToolResponse
   >;
-  hasPendingTools: boolean;
   status: ReturnType<typeof useVoice>['status'];
   onReconnect: () => void;
 };
 
 export const Messages: FC<MessagesProps> = ({
   messages,
-  hasPendingTools,
   status,
   onReconnect,
 }) => {
@@ -74,35 +76,51 @@ export const Messages: FC<MessagesProps> = ({
       ref={messagesWrapper}
     >
       {messages.map((message) => {
-        return (
-          <Fragment key={message.receivedAt?.getTime()}>
-            {match(message.type)
-              .with('user_message', () => {
-                let messageContent =
-                  typeof message.message !== 'string'
-                    ? message.message.content
-                    : '';
-                return <UserMessage messageContent={messageContent} />;
-              })
-              .with('assistant_message', () => {
-                let messageContent =
-                  typeof message.message !== 'string'
-                    ? message.message.content
-                    : '';
-                return <AgentMessage messageContent={messageContent} />;
-              })
-              .with('error', () => {
-                let messageContent =
-                  typeof message.message === 'string'
-                    ? message.message
-                    : 'An unexpected error occurred.';
-                return <ErrorMessage messageContent={messageContent} />;
-              })
-              .exhaustive()}
-          </Fragment>
-        );
+        if (message.type === 'user_message') {
+          return (
+            <UserMessage
+              key={message.receivedAt?.getTime()}
+              messageContent={message.message.content}
+            />
+          );
+        }
+
+        if (message.type === 'assistant_message') {
+          return (
+            <AgentMessage
+              key={message.receivedAt?.getTime()}
+              messageContent={message.message.content}
+            />
+          );
+        }
+
+        if (message.type === 'error') {
+          return (
+            <ErrorMessage
+              key={message.receivedAt?.getTime()}
+              messageContent={message.message}
+            />
+          );
+        }
+
+        if (message.type === 'tool_call') {
+          return (
+            <SearchInProgress
+              key={message.receivedAt?.getTime()}
+              message={message}
+            />
+          );
+        }
+
+        if (message.type === 'tool_response') {
+          return (
+            <SearchSucceeded
+              key={`tool-response-${message.tool_call_id}`}
+              message={message}
+            />
+          );
+        }
       })}
-      {hasPendingTools ? <SearchInProgress /> : null}
       {status.value === 'error' && (
         <div>
           <button
