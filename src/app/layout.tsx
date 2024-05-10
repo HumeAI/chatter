@@ -19,14 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          'overflow-hidden',
-          fellix.className,
-          fellix.variable,
-          fraktionMono.variable,
-        )}
+        className={cn(fellix.className, fellix.variable, fraktionMono.variable)}
       >
-        <main className="flex min-h-svh w-screen flex-col">{children}</main>
+        <main className="flex min-h-svh w-screen flex-col overflow-hidden">
+          {children}
+        </main>
       </body>
     </html>
   );

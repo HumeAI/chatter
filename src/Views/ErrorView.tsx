@@ -10,7 +10,9 @@ const Button = dynamic(
 );
 
 type ErrorViewProps = {
-  setActiveView: Dispatch<SetStateAction<'home' | 'error' | 'conversation'>>;
+  setActiveView: Dispatch<
+    SetStateAction<'home' | 'error' | 'conversation' | 'mic_error'>
+  >;
 };
 
 export const ErrorView: FC<ErrorViewProps> = ({ setActiveView }) => {
@@ -18,9 +20,9 @@ export const ErrorView: FC<ErrorViewProps> = ({ setActiveView }) => {
     <>
       <NavRail variant="dark" />
       <div className="mx-auto my-[30vh] flex w-full grow flex-col items-center justify-center gap-8">
-        <h1 className="text-center text-3xl sm:text-5xl">
+        <h2 className="max-w-lg text-center text-3xl sm:text-5xl md:max-w-2xl">
           Oops! Something went wrong
-        </h1>
+        </h2>
         <Button
           onClick={() => {
             setActiveView('home');
