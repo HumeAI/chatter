@@ -27,7 +27,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
   return (
     <div className="pointer-events-none top-10 hidden opacity-30 lg:block">
       <motion.svg
-        className={'absolute bottom-[-23rem] left-20'}
+        className={'absolute bottom-4 left-20'}
         viewBox={'0 0 100 100'}
         width={1200}
         height={800}
@@ -36,7 +36,7 @@ export const Waveform: FC<WaveformProps> = (props) => {
           const value = (fft[index] ?? 0) / 4;
           const height = Math.min(Math.max(value * 80, 2), 70);
           // const yOffset = 50 - height * 0.5;
-          const yOffset = 50 - height;
+          const yOffset = 100 - height;
 
           return (
             <motion.rect
