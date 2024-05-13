@@ -14,6 +14,7 @@
     "@humeai/voice": "0.1.5-beta.2",
     "@humeai/voice-react": "0.1.5-beta.2",
     "@ngneat/falso": "^7.2.0",
+    "@sentry/nextjs": "^7.105.0",
     "@uidotdev/usehooks": "^2.4.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
