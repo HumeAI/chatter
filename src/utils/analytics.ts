@@ -1,3 +1,5 @@
+'use client';
+
 import { datadogRum } from '@datadog/browser-rum';
 
 datadogRum.init({
@@ -7,7 +9,7 @@ datadogRum.init({
   // see https://docs.datadoghq.com/getting_started/site/
   site: 'datadoghq.com',
   service: 'chatter',
-  env: 'production',
+  env: process.env['NODE_ENV'],
   // Specify a version number to identify the deployed version of your application in Datadog
   // version: '1.0.0',
   sessionSampleRate: 100,
