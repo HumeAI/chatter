@@ -27,7 +27,11 @@ export const ErrorMessage: FC<ErrorMessageProps> = ({ messageContent }) => {
             <div>Error</div>
           </div>
         </div>
-        <div className={'break-all font-mono text-sm leading-tight'}>
+        <div
+          className={
+            'break-all font-mono text-sm leading-tight text-neutral-900'
+          }
+        >
           {messageContent}
         </div>
       </div>
