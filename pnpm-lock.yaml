@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@datadog/browser-rum':
+    specifier: ^5.17.1
+    version: 5.17.1
   '@humeai/voice':
     specifier: 0.1.5-beta.2
     version: 0.1.5-beta.2
@@ -1459,6 +1462,28 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+    dev: false
+
+  /@datadog/browser-core@5.17.1:
+    resolution: {integrity: sha512-OsdjeRCCT1U9+ddygqg3PkqHOkkk7Vr2tI3U8xgZQyiqCzCuooDHebq/40UMP6mf9OVETDkqlSWQ/ouqvFKjUQ==}
+    dev: false
+
+  /@datadog/browser-rum-core@5.17.1:
+    resolution: {integrity: sha512-tb+kzIR5C5EHeCXLiTW5bQTm4T1KsuBUE+Xdf1MJJlpcPKtiqnNKS2gJ1OJQpfuOHWwWrGsH2tIO7fZUtALqAg==}
+    dependencies:
+      '@datadog/browser-core': 5.17.1
+    dev: false
+
+  /@datadog/browser-rum@5.17.1:
+    resolution: {integrity: sha512-BiXA47pBTCjifQxseEVDsrKzLByMdhcp223z8LpyJfjAjMsJad0qxJV5EC+sXANN6yXvpCiC0IjMWNpNHRqpIA==}
+    peerDependencies:
+      '@datadog/browser-logs': 5.17.1
+    peerDependenciesMeta:
+      '@datadog/browser-logs':
+        optional: true
+    dependencies:
+      '@datadog/browser-core': 5.17.1
+      '@datadog/browser-rum-core': 5.17.1
     dev: false
 
   /@discoveryjs/json-ext@0.5.7:

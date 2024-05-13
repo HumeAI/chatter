@@ -5,6 +5,7 @@ import './globals.css';
 import { fellix } from '@/assets/Fellix';
 import { fraktionMono } from '@/assets/FraktionMono';
 import { cn } from '@/utils';
+import { DatadogInit } from '@/utils/analytics';
 
 export const metadata: Metadata = {
   title: 'Chatter',
@@ -22,6 +23,7 @@ export default function RootLayout({
         className={cn(fellix.className, fellix.variable, fraktionMono.variable)}
       >
         <main className="flex min-h-svh w-screen flex-col overflow-hidden">
+          <DatadogInit />
           {children}
         </main>
       </body>
