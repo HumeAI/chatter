@@ -8,8 +8,11 @@ import { cn } from '@/utils';
 import { DatadogInit } from '@/utils/analytics';
 
 export const metadata: Metadata = {
-  title: 'Chatter',
-  description: 'Chatter Hackathon',
+  title: 'Chatter • Hume AI',
+  description: 'Chatter: An interactive podcast experience',
+  metadataBase: new URL(
+    `https://${process.env.VERCEL_URL ?? `localhost:${process.env.PORT ?? '4444'}`}`,
+  ),
 };
 
 export default function RootLayout({
