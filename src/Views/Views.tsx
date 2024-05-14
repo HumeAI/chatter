@@ -10,7 +10,7 @@ import { match } from 'ts-pattern';
 
 function getInitialMessage() {
   const today = format(new Date(), 'LLLL do, yyyy');
-  return `Start your response with: "Welcome to Chatter, an interactive news podcast. The date is ${today}." Then, use the web_search tool to answer this question: what are the top pop culture news stories of ${today}? Do not acknowledge that you received this request.`;
+  return `Start your response with: "Welcome to Chatter, an interactive news podcast. The date is ${today}." Then, use the web_search tool to run exactly this query: "top pop culture news stories ${today}". Then, go over the most interesting top 4 stories. Do not acknowledge that you received this request.`;
 }
 
 export type ViewsProps = Record<never, never>;
