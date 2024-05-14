@@ -1,5 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
+import { OnAir } from '@/components/OnAir';
 import type { SearchInProgressProps } from '.';
 import { SearchInProgress } from '.';
 
@@ -13,6 +14,7 @@ export default {
 const Template: StoryFn<SearchInProgressProps> = (args) => {
   return (
     <div className="h-svh w-screen bg-black p-8">
+      <OnAir />
       <SearchInProgress {...args} />
     </div>
   );

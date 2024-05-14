@@ -27,21 +27,21 @@ export const SearchInProgress: FC<SearchInProgressProps> = ({ message }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="my-4 ml-auto flex w-fit items-center justify-center gap-2 bg-black text-neutral-200"
+        className="z-10 my-4 ml-auto flex w-fit items-center justify-center gap-2 rounded-3xl bg-black px-2 py-1 text-neutral-200"
         data-tool-call-id={toolCallId}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, x: 0 }}
+        animate={{ opacity: 1, x: 10 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.1 }}
       >
         <Search size={20} />
         {query ? (
-          <span>
+          <div className="bg-black">
             <span>Searching the web for </span>
             <span className="font-mono text-neutral-400">
               &ldquo;{query}&rdquo;
             </span>
-          </span>
+          </div>
         ) : (
           <span>Searching the web ...</span>
         )}
