@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { FC } from 'react';
-import { Balancer } from 'react-wrap-balancer';
 
 const loadingContainerVariants = {
   start: {
@@ -67,7 +66,7 @@ export const WaitingOnHost: FC<WaitingOnHostProps> = () => {
             <ThreeDotsWave />
           </div>
 
-          <Balancer>Your podcast co-host will be here soon</Balancer>
+          <div>Your podcast co-host will be here soon</div>
         </motion.div>
       </AnimatePresence>
     </div>

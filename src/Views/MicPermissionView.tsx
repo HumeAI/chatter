@@ -2,7 +2,6 @@ import { NavRail } from '@/components/NavRail';
 import { MicOff } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import type { Dispatch, FC, SetStateAction } from 'react';
-import { Balancer } from 'react-wrap-balancer';
 
 const Button = dynamic(
   () => import('@/components/Button').then((m) => m.Button),
@@ -25,15 +24,12 @@ export const MicPermissionView: FC<MicPermissionViewProps> = ({
       <NavRail variant="dark" />
       <div className="mx-auto flex w-full grow flex-col items-center justify-center gap-4 overflow-scroll">
         <MicOff size={40} />
-        <Balancer
-          as={'h2'}
-          className="max-w-2xl text-center text-2xl sm:text-3xl"
-        >
+        <h2 className="max-w-2xl text-center text-2xl sm:text-3xl">
           Please grant microphone permissions to continue using Chatter.
-        </Balancer>
-        <Balancer as="p" className="mb-8 text-center text-lg sm:text-xl">
+        </h2>
+        <p className="mb-8 text-center text-lg sm:text-xl">
           Permissions can be updated in your browser settings.
-        </Balancer>
+        </p>
         <Button
           onClick={() => {
             setActiveView('home');
