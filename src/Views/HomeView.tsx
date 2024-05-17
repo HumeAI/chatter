@@ -3,7 +3,6 @@ import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import type { Dispatch, FC, SetStateAction } from 'react';
-import Balancer from 'react-wrap-balancer';
 
 const AppHeading = dynamic(
   () => import('@/components/AppHeading').then((m) => m.AppHeading),
@@ -57,7 +56,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         >
           {status.value === 'connecting' ? 'Connecting...' : 'Start'}
         </Button>
-        <Balancer className="max-w-sm text-center text-sm">
+        <div className="max-w-sm text-center text-sm">
           By starting a conversation, I accept Hume&apos;s{' '}
           <a
             className="cursor-pointer underline"
@@ -76,7 +75,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
           >
             Privacy Policy
           </a>
-        </Balancer>
+        </div>
       </motion.div>
 
       <motion.svg

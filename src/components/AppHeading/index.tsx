@@ -3,7 +3,6 @@
 import { cn } from '@/utils';
 import { useShortScreen } from '@/utils/useShortScreen';
 import { motion } from 'framer-motion';
-import Balancer from 'react-wrap-balancer';
 
 export const AppHeading = () => {
   const { isShortScreen } = useShortScreen();
@@ -29,7 +28,7 @@ export const AppHeading = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3, delay: 0.6 }}
       >
-        <Balancer>An interactive podcast experience</Balancer>
+        <div>An interactive podcast experience</div>
       </motion.p>
     </>
   );
