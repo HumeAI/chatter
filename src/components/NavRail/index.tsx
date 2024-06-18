@@ -52,7 +52,7 @@ export const NavRail: FC<NavRailProps> = ({ variant = 'light' }) => {
               isDark
                 ? 'border border-neutral-100'
                 : 'border border-neutral-700',
-              'h-8 rounded-full bg-transparent px-4 leading-none',
+              'h-8 rounded-full bg-transparent px-4',
               isDark
                 ? 'hover:bg-neutral-100 hover:text-black'
                 : 'hover:bg-neutral-700 hover:text-white',
