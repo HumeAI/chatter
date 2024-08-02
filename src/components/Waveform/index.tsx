@@ -1,14 +1,14 @@
 'use client';
 import { getTopNProsody } from '@/utils';
 import { getExpressionColor } from '@/utils/getExpressionColor';
-import type { AssistantTranscriptMessage } from '@humeai/voice-react';
 import { useVoice } from '@humeai/voice-react';
 import { motion } from 'framer-motion';
+import { AssistantMessage } from 'hume/api/resources/empathicVoice';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 
 type WaveformProps = {
-  message: AssistantTranscriptMessage | null;
+  message: AssistantMessage | null;
 };
 export const Waveform: FC<WaveformProps> = (props) => {
   const { message } = props;
