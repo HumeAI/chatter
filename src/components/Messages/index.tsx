@@ -78,7 +78,7 @@ export const Messages: FC<MessagesProps> = ({
       ref={messagesWrapper}
     >
       {messages.map((message) => {
-        if (message.type === 'user_message') {
+        if (message.type === 'user_message' && message.message.content) {
           return (
             <UserMessage
               key={message.receivedAt?.getTime()}
@@ -87,7 +87,7 @@ export const Messages: FC<MessagesProps> = ({
           );
         }
 
-        if (message.type === 'assistant_message') {
+        if (message.type === 'assistant_message' && message.message.content) {
           return (
             <AgentMessage
               key={message.receivedAt?.getTime()}
@@ -117,7 +117,7 @@ export const Messages: FC<MessagesProps> = ({
         if (message.type === 'tool_response') {
           return (
             <SearchSucceeded
-              key={`tool-response-${message.tool_call_id}`}
+              key={`tool-response-${message.toolCallId}`}
               message={message}
             />
           );
