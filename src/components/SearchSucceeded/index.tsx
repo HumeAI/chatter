@@ -1,4 +1,4 @@
-import { ToolResponse } from '@humeai/voice';
+import type { ToolResponse } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FC } from 'react';
 
