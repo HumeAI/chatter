@@ -1,4 +1,4 @@
-import { ToolCall } from '@humeai/voice';
+import type { ToolCall } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 import { FC, useMemo } from 'react';

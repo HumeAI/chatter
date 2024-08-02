@@ -4,12 +4,14 @@ import { SearchInProgress } from '@/components/SearchInProgress';
 import { SearchSucceeded } from '@/components/SearchSucceeded';
 import { UserMessage } from '@/components/UserMessage';
 import { cn } from '@/utils';
-import { JSONErrorMessage, ToolCall, ToolResponse } from '@humeai/voice';
-import {
-  type AssistantTranscriptMessage,
-  type UserTranscriptMessage,
-  useVoice,
+import type {
+  AssistantTranscriptMessage,
+  JSONErrorMessage,
+  ToolCall,
+  ToolResponse,
+  UserTranscriptMessage,
 } from '@humeai/voice-react';
+import { useVoice } from '@humeai/voice-react';
 import type { ElementRef, FC } from 'react';
 import { useEffect, useRef } from 'react';
 
