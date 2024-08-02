@@ -1,25 +1,27 @@
 'use client';
 import { getTopNProsody } from '@/utils';
-import type { AssistantTranscriptMessage } from '@humeai/voice-react';
+import { getExpressionColor } from '@/utils/getExpressionColor';
 import { useVoice } from '@humeai/voice-react';
-import { expressionColors } from 'expression-colors';
 import { motion } from 'framer-motion';
+import { AssistantMessage } from 'hume/api/resources/empathicVoice';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 
-type Expression = keyof typeof expressionColors;
-
 type WaveformProps = {
-  message: AssistantTranscriptMessage | null;
+  message: AssistantMessage | null;
 };
 export const Waveform: FC<WaveformProps> = (props) => {
   const { message } = props;
   const { fft } = useVoice();
 
   const top3Expressions = useMemo(() => {
-    return getTopNProsody(message?.models.prosody?.scores || {}, 3).map(
+    return getTopNProsody({ ...message?.models.prosody?.scores }, 3).map(
       ({ name }) => {
-        return `rgba(${expressionColors[name as Expression].rgba.join(', ')})`;
+        const rgba = getExpressionColor(name);
+        if (typeof rgba !== 'string') {
+          return `rgba(${rgba.map((s) => s?.toString()).join(', ')})`;
+        }
+        return 'rgba(255, 255, 255, 1)';
       },
     );
   }, [message]);

@@ -1,23 +1,26 @@
+import { EVI_PROSODY_EXPRESSIONS_CC } from '@/constants/emotions';
 import type {
   AssistantTranscriptMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { randSentence } from '@ngneat/falso';
-import { expressionColors } from 'expression-colors';
+import { EmotionScores } from 'hume/api/resources/empathicVoice';
 import { nanoid } from 'nanoid';
+
+const createScoresObject = (expressions: readonly (keyof EmotionScores)[]) => {
+  const result = {} as Record<keyof EmotionScores, number>;
+  expressions.forEach((key) => {
+    result[key] = 0;
+  });
+  return result;
+};
+
+const scores = createScoresObject(EVI_PROSODY_EXPRESSIONS_CC);
 
 function createMockProsodyObject() {
   return {
     prosody: {
-      scores: Object.keys(expressionColors)
-        .map((name) => ({
-          name,
-          score: Math.random(),
-        }))
-        .reduce<Record<string, number>>((acc, score) => {
-          acc[score.name] = score.score;
-          return acc;
-        }, {}),
+      scores,
     },
   };
 }
@@ -29,7 +32,7 @@ export function createMockAgentMessage({
   date?: Date;
 } = {}): AssistantTranscriptMessage {
   return {
-    from_text: false,
+    fromText: false,
     id: nanoid(),
     type: 'assistant_message',
     message: {
@@ -49,6 +52,8 @@ export function createMockUserMessage() {
       content: randSentence(),
     },
     models: createMockProsodyObject(),
+    time: { begin: new Date().getTime(), end: new Date().getTime() },
     receivedAt: new Date(),
+    fromText: false,
   } satisfies UserTranscriptMessage;
 }

@@ -1,4 +1,4 @@
-import { ToolCall } from '@humeai/voice';
+import type { ToolCall } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Search } from 'lucide-react';
 import { FC, useMemo } from 'react';
@@ -8,7 +8,7 @@ export type SearchInProgressProps = {
 };
 
 export const SearchInProgress: FC<SearchInProgressProps> = ({ message }) => {
-  const toolCallId = 'tool_call_id' in message ? message.tool_call_id : '';
+  const toolCallId = 'toolCallId' in message ? message.toolCallId : '';
 
   const query = useMemo(() => {
     try {

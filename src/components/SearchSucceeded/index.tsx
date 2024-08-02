@@ -1,4 +1,4 @@
-import { ToolResponse } from '@humeai/voice';
+import type { ToolResponse } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FC } from 'react';
 
@@ -7,7 +7,7 @@ export type SearchSucceededProps = {
 };
 
 export const SearchSucceeded: FC<SearchSucceededProps> = ({ message }) => {
-  const toolCallId = 'tool_call_id' in message ? message.tool_call_id : '';
+  const toolCallId = 'toolCallId' in message ? message.toolCallId : '';
 
   return (
     <AnimatePresence>

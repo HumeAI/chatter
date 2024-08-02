@@ -3,12 +3,12 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { createMockAgentMessage, createMockUserMessage } from '@/utils/mocks';
 import type {
   AssistantTranscriptMessage,
+  JSONErrorMessage,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
 import { useEffect, useState } from 'react';
 import type { MessagesProps } from '.';
 import { Messages } from '.';
-import { JSONErrorMessage } from '@humeai/voice';
 
 export default {
   component: Messages,
