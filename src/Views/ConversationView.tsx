@@ -49,7 +49,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
       .filter((message) => {
         const isInitialMessage =
           message.type === 'user_message' &&
-          (message.from_text === true || !message.models.prosody);
+          (message.fromText === true || !message.models.prosody);
         return !isInitialMessage;
       });
   }, [messages]);
