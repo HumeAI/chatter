@@ -1,6 +1,6 @@
 import type { EmotionScores } from 'hume/api/resources/empathicVoice';
 
-export const EVI_PROSODY_EXPRESSIONS_CC: (keyof EmotionScores)[] = [
+export const EVI_PROSODY_EXPRESSIONS: (keyof EmotionScores)[] = [
   'adoration',
   'admiration',
   'aestheticAppreciation',

@@ -1,4 +1,4 @@
-import { EVI_PROSODY_EXPRESSIONS_CC } from '@/constants/emotions';
+import { EVI_PROSODY_EXPRESSIONS } from '@/constants/emotions';
 import type {
   AssistantTranscriptMessage,
   UserTranscriptMessage,
@@ -15,7 +15,7 @@ const createScoresObject = (expressions: readonly (keyof EmotionScores)[]) => {
   return result;
 };
 
-const scores = createScoresObject(EVI_PROSODY_EXPRESSIONS_CC);
+const scores = createScoresObject(EVI_PROSODY_EXPRESSIONS);
 
 function createMockProsodyObject() {
   return {
