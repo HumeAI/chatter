@@ -1,4 +1,3 @@
-import { EVI_PROSODY_EXPRESSIONS } from '@/constants/emotions';
 import type {
   AssistantTranscriptMessage,
   UserTranscriptMessage,
@@ -6,16 +5,19 @@ import type {
 import { randSentence } from '@ngneat/falso';
 import { EmotionScores } from 'hume/api/resources/empathicVoice';
 import { nanoid } from 'nanoid';
+import { expressionColors } from './expressionColors';
 
-const createScoresObject = (expressions: readonly (keyof EmotionScores)[]) => {
+const createScoresObject = (expressions: string[]) => {
   const result = {} as Record<keyof EmotionScores, number>;
   expressions.forEach((key) => {
-    result[key] = 0;
+    if (key in expressionColors) {
+      result[key as keyof EmotionScores] = 0;
+    }
   });
   return result;
 };
 
-const scores = createScoresObject(EVI_PROSODY_EXPRESSIONS);
+const scores = createScoresObject(Object.keys(expressionColors));
 
 function createMockProsodyObject() {
   return {

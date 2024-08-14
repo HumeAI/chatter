@@ -1,4 +1,14 @@
-export const expressionColors = {
+import { EmotionScores } from 'hume/api/resources/empathicVoice';
+
+export const expressionColors: Record<
+  keyof EmotionScores,
+  {
+    hex: string;
+    gl: readonly [number, number, number, number];
+    rgba: readonly [number, number, number, number];
+    hsl: readonly [number | null, number | null, number | null, number | null];
+  }
+> = {
   admiration: {
     hex: '#ffc58f',
     gl: [1, 0.7725490196078432, 0.5607843137254902, 1],
@@ -28,12 +38,6 @@ export const expressionColors = {
     gl: [0.6980392156862745, 0.09411764705882353, 0.08627450980392157, 1],
     rgba: [178, 24, 22, 1],
     hsl: [0.7692307692307693, 0.7799999999999999, 0.39215686274509803, 1],
-  },
-  annoyance: {
-    hex: '#ffffff',
-    gl: [1, 1, 1, 1],
-    rgba: [255, 255, 255, 1],
-    hsl: [null, 0, 1, 1],
   },
   anxiety: {
     hex: '#6e42cc',
@@ -119,12 +123,6 @@ export const expressionColors = {
     rgba: [0, 108, 124, 1],
     hsl: [187.74193548387098, 1, 0.24313725490196078, 1],
   },
-  disapproval: {
-    hex: '#ffffff',
-    gl: [1, 1, 1, 1],
-    rgba: [255, 255, 255, 1],
-    hsl: [null, 0, 1, 1],
-  },
   disgust: {
     hex: '#1a7a41',
     gl: [0.10196078431372549, 0.47843137254901963, 0.2549019607843137, 1],
@@ -161,12 +159,6 @@ export const expressionColors = {
     rgba: [202, 85, 85, 1],
     hsl: [0, 0.5246636771300447, 0.5627450980392157, 1],
   },
-  enthusiasm: {
-    hex: '#ffffff',
-    gl: [1, 1, 1, 1],
-    rgba: [255, 255, 255, 1],
-    hsl: [null, 0, 1, 1],
-  },
   entrancement: {
     hex: '#7554d6',
     gl: [0.4588235294117647, 0.32941176470588235, 0.8392156862745098, 1],
@@ -190,12 +182,6 @@ export const expressionColors = {
     gl: [0.8196078431372549, 0.788235294117647, 0.9372549019607843, 1],
     rgba: [209, 201, 239, 1],
     hsl: [252.6315789473684, 0.5428571428571429, 0.8627450980392157, 1],
-  },
-  gratitude: {
-    hex: '#ffffff',
-    gl: [1, 1, 1, 1],
-    rgba: [255, 255, 255, 1],
-    hsl: [null, 0, 1, 1],
   },
   guilt: {
     hex: '#879aa1',
@@ -226,12 +212,6 @@ export const expressionColors = {
     gl: [0.9568627450980393, 0.30980392156862746, 0.2980392156862745, 1],
     rgba: [244, 79, 76, 1],
     hsl: [1.0714285714285725, 0.8842105263157899, 0.6274509803921569, 1],
-  },
-  neutral: {
-    hex: '#879aa1',
-    gl: [0.5294117647058824, 0.6039215686274509, 0.6313725490196078, 1],
-    rgba: [135, 154, 161, 1],
-    hsl: [196.1538461538462, 0.1214953271028037, 0.580392156862745, 1],
   },
   nostalgia: {
     hex: '#b087a1',
@@ -274,12 +254,6 @@ export const expressionColors = {
     gl: [0.18823529411764706, 0.3333333333333333, 0.4588235294117647, 1],
     rgba: [48, 85, 117, 1],
     hsl: [207.82608695652175, 0.4181818181818182, 0.32352941176470584, 1],
-  },
-  sarcasm: {
-    hex: '#ffffff',
-    gl: [1, 1, 1, 1],
-    rgba: [255, 255, 255, 1],
-    hsl: [null, 0, 1, 1],
   },
   satisfaction: {
     hex: '#a6ddaf',
