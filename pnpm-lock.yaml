@@ -80,9 +80,6 @@ importers:
       ts-pattern:
         specifier: ^5.0.8
         version: 5.0.8
-      voca:
-        specifier: ^1.4.1
-        version: 1.4.1
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -5835,9 +5832,6 @@ packages:
 
   vm-browserify@1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
-
-  voca@1.4.1:
-    resolution: {integrity: sha512-NJC/BzESaHT1p4B5k4JykxedeltmNbau4cummStd4RjFojgq/kLew5TzYge9N2geeWyI2w8T30wUET5v+F7ZHA==}
 
   watchpack@2.4.1:
     resolution: {integrity: sha512-8wrBCMtVhqcXP2Sup1ctSkga6uc2Bx0IIvKyT7yTFier5AXHooSI+QyQQAtTb7+E0IUCCKyTFmXqdqgum2XWGg==}
@@ -12862,8 +12856,6 @@ snapshots:
   vary@1.1.2: {}
 
   vm-browserify@1.1.2: {}
-
-  voca@1.4.1: {}
 
   watchpack@2.4.1:
     dependencies:
