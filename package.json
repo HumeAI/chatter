@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@datadog/browser-rum": "^5.17.1",
-    "@humeai/voice-react": "0.1.11-beta.6",
+    "@humeai/voice-react": "0.1.11",
     "@ngneat/falso": "^7.2.0",
     "@sentry/nextjs": "^7.105.0",
     "@uidotdev/usehooks": "^2.4.1",
@@ -21,7 +21,7 @@
     "expression-colors": "github:HumeAI/colors",
     "fp-ts": "^2.16.4",
     "framer-motion": "^11.0.18",
-    "hume": "^0.8.5",
+    "hume": "^0.8.7",
     "i": "^0.3.7",
     "lucide-react": "^0.358.0",
     "nanoid": "^5.0.6",
