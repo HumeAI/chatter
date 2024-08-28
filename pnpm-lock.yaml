@@ -12,8 +12,8 @@ importers:
         specifier: ^5.17.1
         version: 5.17.1
       '@humeai/voice-react':
-        specifier: 0.1.11-beta.6
-        version: 0.1.11-beta.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.1.11
+        version: 0.1.11(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@ngneat/falso':
         specifier: ^7.2.0
         version: 7.2.0
@@ -1200,8 +1200,8 @@ packages:
   '@humanwhocodes/object-schema@2.0.2':
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
 
-  '@humeai/voice-react@0.1.11-beta.6':
-    resolution: {integrity: sha512-LcPCOn6hyZ+3uueg4vd2/cAcWwTARFQWc3JnSdd8F3HlR0BXee97xrTDbBswvSSt+l8ArfX/sFSykO4KjHfanw==}
+  '@humeai/voice-react@0.1.11':
+    resolution: {integrity: sha512-qmCGmhZx+m8tDjuHHP+2r3p+GXsM10LhCvVPGvVoFQs23m/ZaKxL8UawPCfsgokqaH42imuXR7kpjhbZHycjAA==}
     peerDependencies:
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
@@ -7009,7 +7009,7 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.2': {}
 
-  '@humeai/voice-react@0.1.11-beta.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@humeai/voice-react@0.1.11(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       date-fns: 3.6.0
       hume: 0.8.6
