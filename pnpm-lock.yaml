@@ -12,8 +12,8 @@ importers:
         specifier: ^5.17.1
         version: 5.17.1
       '@humeai/voice-react':
-        specifier: 0.1.12-beta.3
-        version: 0.1.12-beta.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.1.12
+        version: 0.1.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@ngneat/falso':
         specifier: ^7.2.0
         version: 7.2.0
@@ -42,8 +42,8 @@ importers:
         specifier: ^11.0.18
         version: 11.0.18(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       hume:
-        specifier: ^0.8.7
-        version: 0.8.7
+        specifier: ^0.8.8
+        version: 0.8.8
       i:
         specifier: ^0.3.7
         version: 0.3.7
@@ -107,7 +107,7 @@ importers:
         version: 8.0.2(@types/react@18.2.67)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/nextjs':
         specifier: ^8.0.2
-        version: 8.0.2(esbuild@0.20.2)(next@14.1.3(@babel/core@7.24.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(type-fest@4.18.0)(typescript@5.4.2)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))
+        version: 8.0.2(esbuild@0.20.2)(next@14.1.3(@babel/core@7.24.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(type-fest@4.26.0)(typescript@5.4.2)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))
       '@storybook/react':
         specifier: ^8.0.2
         version: 8.0.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.4.2)
@@ -1200,8 +1200,8 @@ packages:
   '@humanwhocodes/object-schema@2.0.2':
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
 
-  '@humeai/voice-react@0.1.12-beta.3':
-    resolution: {integrity: sha512-fZkE4bu1PuFt78afEiIc6KJ/h2IfXKWo5zN3NIcsvndNMmgzWObVwU6X2/XweEVKdIPURTr+ssLHgpBOiTCRGw==}
+  '@humeai/voice-react@0.1.12':
+    resolution: {integrity: sha512-uB04djXt2NDloxSJ989W0ApZbg77II81+OoCXBJlaH555eGl/k2L3PFDS6qHemb4nW5cK6WGGwxvTWJnCcbQ0A==}
     peerDependencies:
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
@@ -3680,8 +3680,8 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  hume@0.8.7:
-    resolution: {integrity: sha512-GVJekpcp5CfZAAaxawf8ICk/uKcHKbkPBTvbAqDUqFUbI2FtccipyM7FfU7SXs4wgGlbs05PxIHVGN2P/O2m7Q==}
+  hume@0.8.8:
+    resolution: {integrity: sha512-JTWJUGmV4ZH2ikMIHGNOKbFDoQdZo3Iljd2smja3+KYB6e1oxY0+S89mMnR513byA98YP/n0uT7m1RVbVwoAPw==}
 
   i@0.3.7:
     resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
@@ -5679,8 +5679,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.18.0:
-    resolution: {integrity: sha512-+dbmiyliDY/2TTcjCS7NpI9yV2iEFlUDk5TKnsbkN7ZoRu5s7bT+zvYtNFhFXC2oLwURGT2frACAZvbbyNBI+w==}
+  type-fest@4.26.0:
+    resolution: {integrity: sha512-OduNjVJsFbifKb57UqZ2EMP1i4u64Xwow3NYXUtBbD4vIwJdQd4+xl8YDou1dlm4DVrtwT/7Ky8z8WyCULVfxw==}
     engines: {node: '>=16'}
 
   type-is@1.6.18:
@@ -7002,13 +7002,14 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.2': {}
 
-  '@humeai/voice-react@0.1.12-beta.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@humeai/voice-react@0.1.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       date-fns: 3.6.0
-      hume: 0.8.7
+      hume: 0.8.8
       meyda: 5.6.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      type-fest: 4.26.0
       zod: 3.23.8
     transitivePeerDependencies:
       - bufferutil
@@ -7123,7 +7124,7 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@pmmmwh/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(type-fest@4.18.0)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))':
+  '@pmmmwh/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(type-fest@4.26.0)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))':
     dependencies:
       ansi-html-community: 0.0.8
       common-path-prefix: 3.0.0
@@ -7137,7 +7138,7 @@ snapshots:
       source-map: 0.7.4
       webpack: 5.91.0(esbuild@0.20.2)
     optionalDependencies:
-      type-fest: 4.18.0
+      type-fest: 4.26.0
       webpack-hot-middleware: 2.26.1
 
   '@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.67)(react@18.2.0)':
@@ -7867,7 +7868,7 @@ snapshots:
 
   '@storybook/manager@8.0.2': {}
 
-  '@storybook/nextjs@8.0.2(esbuild@0.20.2)(next@14.1.3(@babel/core@7.24.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(type-fest@4.18.0)(typescript@5.4.2)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))':
+  '@storybook/nextjs@8.0.2(esbuild@0.20.2)(next@14.1.3(@babel/core@7.24.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(type-fest@4.26.0)(typescript@5.4.2)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))':
     dependencies:
       '@babel/core': 7.24.3
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.24.3)
@@ -7882,7 +7883,7 @@ snapshots:
       '@babel/preset-react': 7.24.1(@babel/core@7.24.3)
       '@babel/preset-typescript': 7.24.1(@babel/core@7.24.3)
       '@babel/runtime': 7.24.1
-      '@pmmmwh/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(type-fest@4.18.0)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))
+      '@pmmmwh/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(type-fest@4.26.0)(webpack-hot-middleware@2.26.1)(webpack@5.91.0(esbuild@0.20.2))
       '@storybook/addon-actions': 8.0.2
       '@storybook/builder-webpack5': 8.0.2(esbuild@0.20.2)(typescript@5.4.2)
       '@storybook/core-common': 8.0.2
@@ -10645,7 +10646,7 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  hume@0.8.7:
+  hume@0.8.8:
     dependencies:
       form-data: 4.0.0
       form-data-encoder: 4.0.2
@@ -12679,8 +12680,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.18.0:
-    optional: true
+  type-fest@4.26.0: {}
 
   type-is@1.6.18:
     dependencies:
