@@ -4,12 +4,14 @@ import { SearchInProgress } from '@/components/SearchInProgress';
 import { SearchSucceeded } from '@/components/SearchSucceeded';
 import { UserMessage } from '@/components/UserMessage';
 import { cn } from '@/utils';
-import { JSONErrorMessage, ToolCall, ToolResponse } from '@humeai/voice';
-import {
-  type AssistantTranscriptMessage,
-  type UserTranscriptMessage,
-  useVoice,
+import type {
+  AssistantTranscriptMessage,
+  JSONErrorMessage,
+  ToolCall,
+  ToolResponse,
+  UserTranscriptMessage,
 } from '@humeai/voice-react';
+import { useVoice } from '@humeai/voice-react';
 import type { ElementRef, FC } from 'react';
 import { useEffect, useRef } from 'react';
 
@@ -76,7 +78,7 @@ export const Messages: FC<MessagesProps> = ({
       ref={messagesWrapper}
     >
       {messages.map((message) => {
-        if (message.type === 'user_message') {
+        if (message.type === 'user_message' && message.message.content) {
           return (
             <UserMessage
               key={message.receivedAt?.getTime()}
@@ -85,7 +87,7 @@ export const Messages: FC<MessagesProps> = ({
           );
         }
 
-        if (message.type === 'assistant_message') {
+        if (message.type === 'assistant_message' && message.message.content) {
           return (
             <AgentMessage
               key={message.receivedAt?.getTime()}
@@ -115,7 +117,7 @@ export const Messages: FC<MessagesProps> = ({
         if (message.type === 'tool_response') {
           return (
             <SearchSucceeded
-              key={`tool-response-${message.tool_call_id}`}
+              key={`tool-response-${message.toolCallId}`}
               message={message}
             />
           );
