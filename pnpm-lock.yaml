@@ -12,8 +12,8 @@ importers:
         specifier: ^5.17.1
         version: 5.17.1
       '@humeai/voice-react':
-        specifier: 0.1.12
-        version: 0.1.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.1.14
+        version: 0.1.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@ngneat/falso':
         specifier: ^7.2.0
         version: 7.2.0
@@ -42,8 +42,8 @@ importers:
         specifier: ^11.0.18
         version: 11.0.18(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       hume:
-        specifier: ^0.8.8
-        version: 0.8.8
+        specifier: ^0.8.10
+        version: 0.8.10
       i:
         specifier: ^0.3.7
         version: 0.3.7
@@ -1200,8 +1200,8 @@ packages:
   '@humanwhocodes/object-schema@2.0.2':
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
 
-  '@humeai/voice-react@0.1.12':
-    resolution: {integrity: sha512-uB04djXt2NDloxSJ989W0ApZbg77II81+OoCXBJlaH555eGl/k2L3PFDS6qHemb4nW5cK6WGGwxvTWJnCcbQ0A==}
+  '@humeai/voice-react@0.1.14':
+    resolution: {integrity: sha512-bQh5FvY9aCYtQzmhKK2W9ACZbJ1rmbMOvI+bERtfiNQmFlH5id1NS37feA+o6GR9+Zzf7Goqcps+/8JAv/hWfg==}
     peerDependencies:
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
@@ -3680,8 +3680,8 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  hume@0.8.8:
-    resolution: {integrity: sha512-JTWJUGmV4ZH2ikMIHGNOKbFDoQdZo3Iljd2smja3+KYB6e1oxY0+S89mMnR513byA98YP/n0uT7m1RVbVwoAPw==}
+  hume@0.8.10:
+    resolution: {integrity: sha512-jWhaMDlHjEEXKUneW0NAXfc5PYkr6aIsZ5iV1XiyBK21axMtcFwPmDsMXVG7h7qjivCV93VujYbiSjYOOUNqXg==}
 
   i@0.3.7:
     resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
@@ -7002,10 +7002,10 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.2': {}
 
-  '@humeai/voice-react@0.1.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@humeai/voice-react@0.1.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       date-fns: 3.6.0
-      hume: 0.8.8
+      hume: 0.8.10
       meyda: 5.6.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -10646,7 +10646,7 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  hume@0.8.8:
+  hume@0.8.10:
     dependencies:
       form-data: 4.0.0
       form-data-encoder: 4.0.2
