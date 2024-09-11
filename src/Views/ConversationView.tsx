@@ -4,14 +4,13 @@ import { NavRail } from '@/components/NavRail';
 import { OnAir } from '@/components/OnAir';
 import { WaitingOnHost } from '@/components/WaitingOnHost';
 import { Waveform } from '@/components/Waveform';
-import { JSONErrorMessage } from '@humeai/voice';
 import type {
   AssistantTranscriptMessage,
   ToolCall,
   ToolResponse,
   UserTranscriptMessage,
 } from '@humeai/voice-react';
-import { useVoice } from '@humeai/voice-react';
+import { JSONErrorMessage, useVoice } from '@humeai/voice-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { DoorOpen } from 'lucide-react';
 import { type FC, useMemo } from 'react';
@@ -50,7 +49,7 @@ export const ConversationView: FC<ConversationViewProps> = ({
       .filter((message) => {
         const isInitialMessage =
           message.type === 'user_message' &&
-          (message.from_text === true || !message.models.prosody);
+          (message.fromText === true || !message.models.prosody);
         return !isInitialMessage;
       });
   }, [messages]);
