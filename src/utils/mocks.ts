@@ -53,6 +53,7 @@ export function createMockUserMessage() {
       role: 'user',
       content: randSentence(),
     },
+    interim: false,
     models: createMockProsodyObject(),
     time: { begin: new Date().getTime(), end: new Date().getTime() },
     receivedAt: new Date(),
