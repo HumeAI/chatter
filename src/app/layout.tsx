@@ -3,9 +3,6 @@ import type { ReactNode } from 'react';
 import './globals.css';
 import dynamic from 'next/dynamic';
 
-import { fellix } from '@/assets/Fellix';
-import { fraktionMono } from '@/assets/FraktionMono';
-import { cn } from '@/utils';
 import { DatadogInit } from '@/utils/analytics';
 
 const DownloadAppBanner = dynamic(
@@ -33,14 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          fellix.className,
-          fellix.variable,
-          fraktionMono.variable,
-          'flex min-h-screen flex-col',
-        )}
-      >
+      <body className="flex min-h-screen flex-col">
         <DownloadAppBanner />
         <div
           className={'relative grow overflow-auto [transform:translateZ(0px)]'}
