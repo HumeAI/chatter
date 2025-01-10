@@ -60,7 +60,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
           By starting a conversation, I accept Hume&apos;s{' '}
           <a
             className="cursor-pointer underline"
-            href="https://beta.hume.ai/policies/terms-of-use"
+            href="https://link.hume.ai/terms-of-use"
             target="_blank"
             rel="noreferrer noopener"
           >
@@ -69,7 +69,7 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
           and acknowledge the{' '}
           <a
             className="cursor-pointer underline"
-            href="https://www.hume.ai/privacy-policy"
+            href="https://link.hume.ai/privacy-policy"
             target="_blank"
             rel="noreferrer noopener"
           >
