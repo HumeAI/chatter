@@ -10,16 +10,8 @@ export const Voice = () => {
   const accessToken = data?.access_token || '';
 
   return (
-    <VoiceProvider
-      auth={{
-        type: 'accessToken',
-        value: accessToken,
-      }}
-      hostname={process.env.NEXT_PUBLIC_VOICE_HOSTNAME}
-      configId={process.env.NEXT_PUBLIC_VOICE_CONFIG_ID}
-      clearMessagesOnDisconnect={false}
-    >
-      <Views />
+    <VoiceProvider clearMessagesOnDisconnect={false}>
+      <Views accessToken={accessToken} />
     </VoiceProvider>
   );
 };

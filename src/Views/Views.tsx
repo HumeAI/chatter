@@ -13,9 +13,11 @@ function getInitialMessage() {
   return `Start your response with: "Welcome to Chatter, an interactive news podcast. The date is ${today}." Then, use the web_search tool to answer this question: what are the top 3 news stories of today? Do not acknowledge that you received this request.`;
 }
 
-export type ViewsProps = Record<never, never>;
+export type ViewsProps = {
+  accessToken: string;
+};
 
-export const Views: FC<ViewsProps> = () => {
+export const Views: FC<ViewsProps> = ({ accessToken }) => {
   const { status, sendUserInput, disconnect, connect, clearMessages } =
     useVoice();
   const isFirstMessageSent = useRef(false);
@@ -46,14 +48,23 @@ export const Views: FC<ViewsProps> = () => {
                 clearMessages();
               }}
               onReconnect={() => {
-                connect();
+                connect({
+                  auth: {
+                    type: 'accessToken',
+                    value: accessToken,
+                  },
+                  hostname: process.env.NEXT_PUBLIC_VOICE_HOSTNAME,
+                  configId: process.env.NEXT_PUBLIC_VOICE_CONFIG_ID,
+                });
                 isFirstMessageSent.current = false;
               }}
             />
           );
         })
         .with('home', () => {
-          return <HomeView setActiveView={setActiveView} />;
+          return (
+            <HomeView setActiveView={setActiveView} accessToken={accessToken} />
+          );
         })
         .with('error', () => {
           return <ErrorView setActiveView={setActiveView} />;

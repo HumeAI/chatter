@@ -22,9 +22,10 @@ type HomeViewProps = {
   setActiveView: Dispatch<
     SetStateAction<'home' | 'error' | 'conversation' | 'mic_error'>
   >;
+  accessToken: string;
 };
 
-export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
+export const HomeView: FC<HomeViewProps> = ({ setActiveView, accessToken }) => {
   const { connect, status } = useVoice();
 
   return (
@@ -40,7 +41,14 @@ export const HomeView: FC<HomeViewProps> = ({ setActiveView }) => {
         <Button
           className="shrink"
           onClick={() => {
-            void connect()
+            void connect({
+              auth: {
+                type: 'accessToken',
+                value: accessToken,
+              },
+              hostname: process.env.NEXT_PUBLIC_VOICE_HOSTNAME,
+              configId: process.env.NEXT_PUBLIC_VOICE_CONFIG_ID,
+            })
               .then(() => {
                 setActiveView('conversation');
               })
